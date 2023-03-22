@@ -1,0 +1,146 @@
+.book-now-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-wrap {
+  align-items: stretch;
+  text-align: left;
+  padding: 4rem;
+  width: 80%;
+}
+
+.book-now-field {
+  transition-duration: 1s;
+  /* color: rgba(128, 128, 128, 0.281); */
+  padding: 0.6rem;
+  border-bottom: 1.5px solid #2d2d2d13;
+  /* border-bottom: 1px solid #2d2d2d; */
+}
+.book-now-field:hover {
+  transition-duration: 0.5s;
+  background-image: linear-gradient(white, #b8336d3f);
+  border-bottom-color: #b8336c;
+}
+.book-now-field_hidden {
+  transition-duration: 1s;
+  color: rgba(189, 188, 188, 0.281);
+  border-color: rgba(189, 188, 188, 0.281);
+  padding: 0.6rem;
+}
+
+.book-now-field_hidden,
+.book-now-field {
+  display: grid;
+  grid-template-columns: auto auto;
+  /* gap: 33rem; */
+  width: 100%;
+  margin: auto;
+  height: 3rem;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.book-now-field input,
+select {
+  justify-content: start;
+  align-items: flex-start;
+  width: 500px;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+.book-now-field label {
+  font-size: 1.2rem;
+}
+
+.book-now-field_hidden input,
+select {
+  justify-content: start;
+  align-items: flex-start;
+  left: 0;
+  width: 500px;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  padding: 10px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.book-now-field_hidden input {
+  width: 476px;
+  border-width: 2px;
+  border-color: #2d2d2d1a;
+}
+
+.book-now-field input {
+  width: 476px;
+  padding: 10px;
+  border-width: 2px;
+  border-color: #2d2d2d;
+}
+
+.book-now-field_hidden select {
+  border-width: 2px;
+  border-color: #2d2d2d1a;
+}
+
+.book-now-field select {
+  border-width: 2px;
+  border-color: #2d2d2d;
+  overflow: hidden;
+  background: url("/public/icons/arrow.svg") no-repeat right #fff;
+  background-size: 15px;
+  background-position: 97%;
+}
+
+.book-now-submitBtn {
+  width: 200px;
+  background-color: #b8336c;
+  color: #fcfcfc;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.book-now-submitBtn:after {
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+  border: 1px solid #b8336c;
+  content: "";
+  transition: all 0.2s;
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 10px;
+}
+
+.book-now-submitBtn:hover::after {
+  width: 100%;
+  height: 100%;
+  top: 4px;
+  right: -6px;
+}
+
+.book-now-submitBtn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}

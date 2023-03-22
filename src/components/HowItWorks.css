@@ -1,0 +1,42 @@
+.how_section {
+  padding: 2rem;
+  background-color: #3ca5a8;
+}
+.how_wrap {
+  margin-left: 15rem;
+  margin-right: 15rem;
+  color: white;
+}
+.how_header {
+  text-align: center;
+  line-height: 1rem;
+}
+.how_header h1 {
+  font-size: 2.5rem;
+  font-weight: bolder;
+}
+.how_header h3 {
+  font-size: 1.75rem;
+  font-weight: 300;
+}
+
+.how-body {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: auto auto auto auto;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.how-body span {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.how-body h3 {
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+.how-element {
+  width: 80%;
+}

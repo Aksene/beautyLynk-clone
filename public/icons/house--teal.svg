@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+	<style>
+		.st0 {
+			fill: none;
+			stroke: #3da5a8;
+			stroke-width:2;
+		}
+	</style>
+
+	<path class="st0" d="M35, 47H13c-4.4, 0-8-3.6-8-8V17L24, 1l19, 16v22C43, 43.4, 39.4, 47, 35, 47z"/>
+	<polyline class="st0" points="19, 47 19, 33 29, 33 29, 47"/>
+</svg>
