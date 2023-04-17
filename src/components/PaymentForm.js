@@ -91,7 +91,7 @@ export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo})
             console.log("Stripe 23 | token generated!", paymentMethod);
             try {
                 const {id} = paymentMethod 
-                const response = await axios.post("https://beautylynk-clone-server.vercel.app:4000/payment", {
+                const response = await axios.post("https://beautylynk-clone-server.vercel.app/payment", {
                     amount: bookingInfo.totalPrice*100,
                     id: id,
                     description: `${paymentInfo.description} for ${paymentInfo.fname} ${paymentInfo.lname}`,
