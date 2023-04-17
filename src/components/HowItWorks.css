@@ -35,8 +35,13 @@
 
 .how-body h3 {
   font-size: 1.75rem;
-  font-weight: bold;
+  font-weight: 600;
 }
 .how-element {
   width: 80%;
+}
+
+.how-element h5 {
+  font-weight: 50;
+  font-size: 1.25rem;
 }

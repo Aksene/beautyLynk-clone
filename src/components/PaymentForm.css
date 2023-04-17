@@ -1,0 +1,152 @@
+.cardAddress-ans p,
+label {
+  font-size: 1.2rem;
+}
+
+.cardAddress-ans input {
+  margin: 0.4rem;
+}
+
+.cardAddress-ans {
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #b8336dbe;
+}
+
+input[type="radio"] {
+  -webkit-appearance: radio;
+}
+
+.FormGroup-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 5rem;
+  border-width: 0px;
+}
+.FormGroup label {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.FormGroup-info label {
+  font-size: 1.2rem;
+}
+
+.FormGroup {
+  /* margin: 0 15px 20px; */
+  /* padding: 0; */
+  border-style: none;
+  will-change: opacity, transform;
+  border-radius: 4px;
+}
+
+.name-fields,
+.address-fields,
+.FormRow {
+  display: grid;
+  grid-template-columns: auto;
+}
+
+.name-fields input,
+.address-fields input {
+  font-size: 1.2rem;
+  height: 2rem;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-width: 2px;
+  margin-bottom: 1rem;
+  border-color: #000000;
+  color: #e02777;
+}
+
+.address-fields select {
+  width: 81% !important;
+  border-width: 2px;
+  border-color: #2d2d2d;
+  overflow: hidden;
+  background: url("/public/icons/arrow.svg") no-repeat right #fff;
+  background-size: 15px;
+  background-position: 97%;
+}
+
+.address-fields select,
+input {
+  width: 78%;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  padding: 10px;
+  appearance: none;
+}
+
+.address-fields label,
+.name-fields label,
+.FormRow label {
+  margin-right: 0;
+  margin-left: auto;
+  padding: 10px;
+  appearance: none;
+  width: 510px;
+}
+
+.StripeElement--webkit-autofill {
+  background: transparent !important;
+}
+
+.StripeElement {
+  width: 79%;
+  margin-right: 0px;
+  margin-left: auto;
+  padding: 11px 15px 11px 0;
+}
+
+.FormGroup-confirmBtn {
+  width: 200px;
+  background-color: #b8336c;
+  color: #fcfcfc;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.FormGroup-confirmBtn:after {
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+  border: 1px solid #b8336c;
+  content: "";
+  transition: all 0.2s;
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 10px;
+}
+
+.FormGroup-confirmBtn:hover::after {
+  width: 100%;
+  height: 100%;
+  top: 4px;
+  right: -6px;
+}
+
+.FormGroup-confirmBtn-container {
+  padding-top: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: auto;
+  margin-left: 6rem;
+}
+.FormGroup {
+  padding-bottom: 3rem;
+}

@@ -101,6 +101,23 @@ select {
   background-position: 97%;
 }
 
+.book-now-field span {
+  /* display: flex;
+  justify-content: start;
+  align-items: flex-start; */
+  width: 500px;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  position: relative;
+  /* top: -1.3rem; */
+  /* padding: 10px; */
+}
+
+#book-now-fieldDesc {
+  height: 5rem;
+}
+
 .book-now-submitBtn {
   width: 200px;
   background-color: #b8336c;
@@ -114,6 +131,7 @@ select {
   z-index: 2;
   border-radius: 10px;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 
 .book-now-submitBtn:after {
@@ -143,4 +161,51 @@ select {
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
+}
+
+.booking-address-fields {
+  display: grid;
+  grid-template-columns: auto;
+  width: 71%;
+  margin-left: auto;
+}
+
+.booking-address-fields input {
+  font-size: 1.2rem;
+  height: 2rem;
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-width: 2px;
+  margin-bottom: 1rem;
+  border-color: #000000;
+  /* color: #e02777; */
+}
+
+.booking-address-fields select {
+  width: 100% !important;
+  border-width: 2px;
+  border-color: #2d2d2d;
+  overflow: hidden;
+  background: url("/public/icons/arrow.svg") no-repeat right #fff;
+  background-size: 15px;
+  background-position: 97%;
+}
+
+.booking-address-fields select,
+input {
+  width: 78%;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  padding: 10px;
+  appearance: none;
+}
+
+.booking-address-fields label {
+  /* margin-right: 0; */
+  /* margin-left: auto; */
+  padding-top: 10px;
+  appearance: none;
+  /* width: 510px; */
 }
