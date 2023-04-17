@@ -83,7 +83,7 @@ function BookNow() {
             bookingInfo["location"] = stateBookingInfo.location
             bookingInfo["date"] = stateBookingInfo.date
             bookingInfo["time"] = stateBookingInfo.time
-            bookingInfo["service"] = stateBookingInfo.service
+            bookingInfo["serviceType"] = stateBookingInfo.serviceType
         }
     }
 
@@ -318,7 +318,7 @@ function BookNow() {
                             <select 
                                 disabled={bookingInfo.time === "" ? true : false} name="serviceType" required value={bookingInfo.serviceType} onChange={e => handleInputChange(e)}>
                                 <option 
-                                    value="" defaultValue>Select a service
+                                    value="" defaultValue>Select a service type
                                 </option>
                                 <option value="HAIR" >Hair</option>
                                 <option value="MAKEUP" >Makeup</option>

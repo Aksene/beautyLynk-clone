@@ -13,7 +13,7 @@ function JumboHero() {
     // }])
     const [bookingInfo, setBookingInfo] = useState({
         location: "",
-        service: "",
+        serviceType: "",
         date: "",
         time: "",
     })
@@ -92,7 +92,7 @@ function JumboHero() {
 
         const {data, error} = await supabase
             .from('BeautyLynk_Cities')
-            .select('city')
+            .select('city, state, city_status')
             .order('city')
         if(error){
             console.log(error)
@@ -112,7 +112,7 @@ function JumboHero() {
 
         const {data, error} = await supabase
             .from('BeautyLynk_Services')
-            .select('service')
+            .select('*')
 
         if(error){
             console.log(error)
@@ -143,16 +143,21 @@ function JumboHero() {
                             <select className="booking-field_select" name="location" type="text" required value={bookingInfo.location} onChange={e => handleInputChange(e)}>
                                 <option value="" defaultValue>Select a location</option>
                                 {cities.map((val, index) => (
-                                    <option key={index} value={val.city} >{val.city}</option>
+                                    val.city_status === "live" ?
+                                        <option key={index} value={val.city} >{val.city}</option>
+                                    : ""
                                 ))}
                             </select>
                         </div>
                         <div className="booking-field">
-                            <select className="booking-field_select" name="service" required value={bookingInfo.service} onChange={e => handleInputChange(e)}>
-                                <option value="" defaultValue>Select a service</option>
-                                {services.map((val, index) => (
-                                    <option key={index} value={val.service} >{val.service}</option>
-                                ))}
+                            <select className="booking-field_select" name="serviceType" required value={bookingInfo.serviceType} onChange={e => handleInputChange(e)}>
+                                <option 
+                                    value="" defaultValue>Select a service type
+                                </option>
+                                <option value="HAIR" >Hair</option>
+                                <option value="MAKEUP" >Makeup</option>
+                                <option value="NAIL" >Nail</option>
+                                <option value="HENNA" >Henna</option>
                             </select>
                         </div>
                         <div className="booking-field">
