@@ -633,8 +633,8 @@ function BookNow() {
                                             <label htmlFor="">Do you have sensitive scalp?</label>
                                             <select name="upchargeScalp" required value={bookingInfo.upchargeScalp} onChange={e => handleInputChange(e)}>
                                                 {/* <option value="" defaultValue>Select an answer</option> */}
-                                                <option value={0}>Yes</option>
-                                                <option value={25}>No</option>
+                                                <option value={25}>Yes</option>
+                                                <option value={0}>No</option>
                                             </select>
                                         </div>
                                     : ""
@@ -654,8 +654,8 @@ function BookNow() {
                                             <label htmlFor="">Do you have stairs at your complex?</label>
                                             <select name="upchargeStairs" required value={bookingInfo.upchargeStairs} onChange={e => handleInputChange(e)}>
                                                 {/* <option value="" defaultValue>Select an answer</option> */}
-                                                <option value={0}>Yes</option>
-                                                <option value={10}>No</option>
+                                                <option value={10}>Yes</option>
+                                                <option value={0}>No</option>
                                             </select>
                                         </div>
                                 }
