@@ -24,6 +24,7 @@ function BookNow() {
         totalPrice: 0,
         date: "",
         time: "",
+        // Hair
         hairExt: "",
         hairExtType: "",
         hairClass: "",
@@ -36,17 +37,41 @@ function BookNow() {
         hairCare: "",
         locTime: "",
         locColor: "",
+        braidsLength: "",
+        // Wig
+        wigPurchased: "",
+        wigPurchaseAsst: "",
+        wigHairType: "",
+        wigInstallType: "",
+        wigPrice: "",
+        upchargeWigStyle: "",
+        // Skin
         skinType: "",
         skinComplexion: "",
         allergies: "",
         skinConditions: "",
+        // Makeup
         makeupLook: "",
+        makeupLashes: "",
+        // Henna
+        hennaSize: "",
+        hennaDesign: "",
+        hennaLength: "",
+        hennaColor:"",
+        //Nail
+        nailDesc: "",
+        nailShape: "",
+        nailPolish: "",
+        nailPolishOther: "",
+        // General, upcharges & appointment
         pet: "",
         specialAcc: "",
         specialAccType: "",
-        upchargeParking: 0,
-        upchargeScalp: 0,
-        upchargeStairs: 0,
+        upchargeParking: "",
+        upchargeScalp: "",
+        upchargeStairs: "",
+        upchargeQuietServ: "",
+        smokeFree: "",
         aptAddress1: "",
         aptAddress2: "",
         aptCity: "",
@@ -63,7 +88,9 @@ function BookNow() {
     const [cities, setCities] = useState([])
     const [services, setServices] = useState([])
     const [hairType, setHairType] = useState([])
+    const [skinComplex, setSkinComplex] = useState([])
     const [showPayment, setShowPayment] = useState(false)
+    const [emptyInfo, setEmptyInfo] = useState(bookingInfo)
     
 
     // Grabs info from JumboHero on the homepage
@@ -75,6 +102,7 @@ function BookNow() {
         getCities()
         getServices()
         getHairType()
+        getSkinComplex()
        
     },[])
 
@@ -99,33 +127,77 @@ function BookNow() {
             fieldValue = fieldValue === 'true' ? true : false
         }
 
-        const newFormData = { ...bookingInfo};
+        var newFormData = { ...bookingInfo};
+
+        
 
          // Resets the service, hairClass & hairType when serviceType is changed
         if (fieldName === "serviceType" && (fieldValue === "HAIR" || fieldValue === "MAKEUP" || fieldValue === "NAIL" || fieldValue === "HENNA" )) {
-            newFormData["hairType"] = ""
-            newFormData["hairClass"] = ""
-            newFormData["service"] = ""
+            newFormData = {...emptyInfo}
+            newFormData["location"] = bookingInfo.location
+            newFormData["date"] = bookingInfo.date
+            newFormData["time"] = bookingInfo.time
+            // newFormData["service"] = ""
+            // newFormData["hairType"] = ""
+            // newFormData["hairClass"] = ""
+            // newFormData["hairDensity"] = ""
+            // newFormData["service"] = ""
+            // newFormData["wigPurchased"] = ""
+            // newFormData["wigHairType"] = ""
+            // newFormData["wigInstallType"] = ""
+            // newFormData["wigPrice"] = ""
+            // newFormData["upchargeWigStyle"] = ""
+            // newFormData["makeupLashes"] = ""
+            // newFormData["upchargeParking"] = ""
+            // newFormData["specialAccType"] = ""
+            // newFormData["specialAcc"] = ""
+            // newFormData["pet"] = ""
+            // newFormData["upchargeQuietServ"] = ""
+            // newFormData["smokeFree"] = ""
+            // newFormData["upchargeScalp"] = ""
+            // newFormData["upchargeStairs"] = ""
             // console.log("ServiceType has changed: ", newFormData)
             // setBookingInfo(newFormData)
         }
         // Resets the fields when service is changed
         if (fieldName === "service"){
-            newFormData["hairExt"] = ""
-            newFormData["hairExtType"] = ""
-            newFormData["hairLoss"] = ""
-            newFormData["hairLossDiag"] = ""
-            newFormData["hairLossCause"] = ""
-            newFormData["curlPattern"] = ""
-            newFormData["hairDensity"] = ""
-            newFormData["hairCare"] = ""
-            newFormData["locTime"] = ""
-            newFormData["locColor"] = ""
-            newFormData["skinType"] = ""
-            newFormData["skinComplexion"] = ""
-            newFormData["allergies"] = ""
-            newFormData["skinConditions"] = ""
-            newFormData["makeupLook"] = ""
+            newFormData = {...emptyInfo}
+            newFormData["location"] = bookingInfo.location
+            newFormData["date"] = bookingInfo.date
+            newFormData["time"] = bookingInfo.time
+            newFormData["hairType"] = bookingInfo.hairType
+            newFormData["hairDensity"] = bookingInfo.hairDensity
+            newFormData["serviceType"] = bookingInfo.serviceType
+            // newFormData["hairExt"] = ""
+            // newFormData["hairExtType"] = ""
+            // newFormData["hairLoss"] = ""
+            // newFormData["hairLossDiag"] = ""
+            // newFormData["hairLossCause"] = ""
+            // newFormData["curlPattern"] = ""
+            // newFormData["hairCare"] = ""
+            // newFormData["locTime"] = ""
+            // newFormData["locColor"] = ""
+            // newFormData["skinType"] = ""
+            // newFormData["skinComplexion"] = ""
+            // newFormData["allergies"] = ""
+            // newFormData["skinConditions"] = ""
+            // newFormData["makeupLook"] = ""
+            // newFormData["wigPurchased"] = ""
+            // newFormData["wigHairType"] = ""
+            // newFormData["wigInstallType"] = ""
+            // newFormData["wigPrice"] = ""
+            // newFormData["upchargeWigStyle"] = ""
+            // newFormData["makeupLashes"] = ""
+            // newFormData["nailDesc"] = ""
+            // newFormData["nailShape"] = ""
+            // newFormData["nailPolish"] = ""
+            // newFormData["nailPolishOther"] = ""
+            // newFormData["hennaSize"] = ""
+            // newFormData["hennaDesign"] = ""
+            // newFormData["hennaLength"] = ""
+            // newFormData["hennaColor"] = ""
+            // newFormData["braidsLength"] = ""
+            // newFormData["makeupLashes"] = ""
             
             services.map((val,index) => (
                 fieldValue === val.service ? 
@@ -135,9 +207,56 @@ function BookNow() {
             
         }
 
-        if (fieldName === "upchargeScalp" || fieldName === "upchargeStairs" || fieldName === "upchargeParking") {
-            newFormData[fieldName] = parseInt(fieldValue)
+        // Check if Upcharges are in the correct form
+        if (fieldName === "upchargeScalp" || fieldName === "upchargeStairs" || fieldName === "upchargeParking" || fieldName === "upchargeQuietServ" || fieldName === "makeupLashes" || fieldName === "upchargeWigStyle") {
+            newFormData[fieldName] = fieldValue === "" ? 0 : parseInt(fieldValue)
             // alert("New price for "+fieldName +": " + typeof parseInt(fieldValue))
+        } else if (fieldName === "date") {
+            // Check to see if the date chosen is older than today
+            var GivenDate = new Date(fieldValue)
+            var CurrentDate = new Date();
+            // Gets rid of Timezone offset
+            GivenDate = new Date( GivenDate.getTime() - GivenDate.getTimezoneOffset() * -60000 );
+            console.log("Current Date: " + CurrentDate +" vs. Given Date: " + GivenDate)
+
+            if(GivenDate >= CurrentDate){
+                // alert('Given date is greater than the current date.');
+                newFormData[fieldName] = fieldValue
+            }else{
+                alert('Please select a date that is not in the past');
+                newFormData[fieldName] = ""
+            }
+        } else if (fieldName === "time"){
+            // Time limits
+            var startTime = '9:00:00';
+            var endTime = '20:00:00';
+
+            const currentDate = new Date()   
+
+            // Set start date
+            const startDate = new Date(currentDate.getTime());
+            startDate.setHours(startTime.split(":")[0]);
+            startDate.setMinutes(startTime.split(":")[1]);
+            // Set end date
+            const endDate = new Date(currentDate.getTime());
+            endDate.setHours(endTime.split(":")[0]);
+            endDate.setMinutes(endTime.split(":")[1]);
+
+            currentDate.setHours(fieldValue.split(":")[0]);
+            currentDate.setMinutes(fieldValue.split(":")[1])
+
+
+            const valid = startDate < currentDate && endDate > currentDate
+            console.log("Start time: " + startDate +" Current time: " + currentDate +" End Date: " + endDate)
+            console.log("Is time selected valid:", valid)
+
+            if (valid) {
+                newFormData[fieldName] = fieldValue
+            }else{
+                alert('Please select a time between 9:00 AM and 8:00 PM');
+                newFormData[fieldName] = ""
+            }
+
         } else {
             newFormData[fieldName] = fieldValue
         }
@@ -150,6 +269,11 @@ function BookNow() {
         // if (fieldName === "time"){
         //     newFormData["time"] = formatAMPM(fieldValue)
         // }
+
+        if (fieldName === "upchargeScalp" || fieldName === "upchargeStairs" || fieldName === "upchargeParking" || fieldName === "upchargeQuietServ" || fieldName === "makeupLashes" || fieldName === "upchargeWigStyle"){
+            // bookingInfo.servicePrice + bookingInfo.upchargeParking + bookingInfo.upchargeScalp + bookingInfo.upchargeStairs + bookingInfo.upchargeQuietServ + bookingInfo.upchargeWigStyle + bookingInfo.makeupLashes
+            console.log("UPCHARGE CHANGE for "+fieldName+":", fieldValue === "" ? 0 : parseInt(fieldValue))
+        }
 
         
         console.log("New form data: ", newFormData)
@@ -257,6 +381,26 @@ function BookNow() {
         }
     }
 
+    const getSkinComplex = async() => {
+        let info = [];
+
+        const {data, error} = await supabase
+            .from('skinComplexion')
+            .select('hexCode, fentyFoundationShade')
+
+        if(error){
+            console.log(error)
+        }
+        if(data){
+            // info.push(data)
+            console.log("Data skin complexion for user")
+            console.log(data)
+            setSkinComplex(data)
+
+            // console.log(data.id)
+        }
+    }
+
     function formatAMPM(dateRaw) {
         // const test = document.getElementById("time")
         const timeArray = dateRaw.split(":")
@@ -280,7 +424,14 @@ function BookNow() {
                 <div className="form-wrap">
                     <form onSubmit={(e) => {
                         e.preventDefault();
-                        bookingInfo["totalPrice"] = bookingInfo.servicePrice + bookingInfo.upchargeParking + bookingInfo.upchargeScalp + bookingInfo.upchargeStairs
+                        bookingInfo["totalPrice"] = 
+                            bookingInfo.servicePrice 
+                                + (bookingInfo.upchargeParking === "" ? 0 : parseInt(bookingInfo.upchargeParking))
+                                + (bookingInfo.upchargeScalp === "" ? 0 : parseInt(bookingInfo.upchargeScalp))
+                                + (bookingInfo.upchargeStairs === "" ? 0 : parseInt(bookingInfo.upchargeStairs))
+                                + (bookingInfo.upchargeQuietServ === "" ? 0 : parseInt(bookingInfo.upchargeQuietServ))
+                                + (bookingInfo.makeupLashes === "" ? 0 : parseInt(bookingInfo.makeupLashes))
+                                + (bookingInfo.upchargeWigStyle === "" ? 0 : parseInt(bookingInfo.upchargeWigStyle))
                         console.log("Booking form info: ", bookingInfo)
                         console.log("Please fill the payment form below")
                         setShowPayment(true)
@@ -351,10 +502,12 @@ function BookNow() {
                                         <select disabled={bookingInfo.service === "" ? true : false} name="skinType" required value={bookingInfo.skinType} onChange={e => handleInputChange(e)}>
                                             <option 
                                                 onChange={bookingInfo.skinType === "" ? bookingInfo.skinComplexion = "" : "" } 
-                                                value="" defaultValue>Select a style</option>
-                                            {services.map((val, index) => (
-                                                <option value={val.service} >{val.service}</option>
-                                            ))}
+                                                value="" defaultValue>Select a type</option>
+                                            <option value="Normal">Normal</option>
+                                            <option value="Dry">Dry</option>
+                                            <option value="Combination">Combination</option>
+                                            <option value="Oily">Oily</option>
+                                            <option value="Sensitive">Sensitive</option>                                            
                                         </select>
                                     </div>
                                     <div className={bookingInfo.skinType === "" ? "book-now-field_hidden" : "book-now-field"}>
@@ -363,8 +516,8 @@ function BookNow() {
                                             <option 
                                                 onChange={bookingInfo.skinComplexion === "" ? bookingInfo.allergies = "" : "" }
                                                 value="" defaultValue>Select a type</option>
-                                            {cities.map((val, index) => (
-                                                <option value={val.city} >{val.city}</option>
+                                            {skinComplex.map((val, index) => (
+                                                <option value={val.fentyFoundationShade} >{val.fentyFoundationShade}</option>
                                             ))}
                                         </select>
                                     </div>
@@ -392,7 +545,9 @@ function BookNow() {
                                     <div className={bookingInfo.skinConditions === "" ? "book-now-field_hidden" : "book-now-field"}>
                                         <label htmlFor="">What type of look are you looking for? </label>
                                         <select disabled={bookingInfo.skinConditions === "" ? true : false} name="makeupLook" type="text" required value={bookingInfo.makeupLook} onChange={e => handleInputChange(e)}>
-                                            <option value="" defaultValue>Select an answer</option>
+                                            <option 
+                                                onChange={bookingInfo.makeupLook === "" ? bookingInfo.makeupLashes = "" : "" }
+                                                value="" defaultValue>Select an answer</option>
                                             <option value="Daytime">Daytime</option>
                                             <option value="Natural (Light Contouring)">Natural (Light Contouring)</option>
                                             <option value="High Glam (Heavy Contouring)">High Glam (Heavy Contouring)</option>
@@ -400,10 +555,19 @@ function BookNow() {
                                             <option value="Gothic (Dark Makeup)">Gothic (Dark Makeup)</option>
                                         </select>
                                     </div>
+                                    <div className={bookingInfo.makeupLook === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                        <label htmlFor="">Would you like lashes? </label>
+                                        <select disabled={bookingInfo.makeupLook === "" ? true : false} name="makeupLashes" required value={bookingInfo.makeupLashes} onChange={e => handleInputChange(e)}>
+                                            <option 
+                                                value="" defaultValue>Select an answer</option>
+                                            <option value={15}>Yes</option>
+                                            <option value={0}>No</option>
+                                        </select>
+                                    </div>
+
                                 </div> 
                             : ""
                         }
-                        
                         {/* ---------- MAKE-UP INPUTS ---------- */}
 
                         
@@ -426,10 +590,115 @@ function BookNow() {
                                         ))}
                                     </select>
                                 </div>
+                                <div className={bookingInfo.service === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Do you have a specific design in mind?</label>
+                                    <select disabled={bookingInfo.service === "" ? true : false} name="nailDesc" required value={bookingInfo.nailDesc} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                            <option value="Natural" >Natural</option>
+                                            <option value="Gel Overlay">Gel Overlay</option>
+                                            <option value="Full Set (acrylic tips) ">Full Set (acrylic tips)</option>
+                                            <option value="I do not know how to describe my nails">I do not know how to describe my nails</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.nailDesc === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Select your preferred Nail shape:</label>
+                                    <select disabled={bookingInfo.nailDesc === "" ? true : false} name="nailShape" required value={bookingInfo.nailShape} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                            <option value="Round" >Round</option>
+                                            <option value="Square">Square </option>
+                                            <option value="Oval">Oval</option>
+                                            <option value="Almond" >Almond</option>
+                                            <option value="Coffin">Coffin </option>
+                                            <option value="Stiletto">Stiletto</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.nailShape === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Prefered Polish Color:</label>
+                                    <select disabled={bookingInfo.nailShape === "" ? true : false} name="nailPolish" required value={bookingInfo.nailPolish} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                            <option value="Pinks" >Pinks</option>
+                                            <option value="Reds">Reds </option>
+                                            <option value="Blues">Blues</option>
+                                            <option value="Bright Colors" >Bright Colors</option>
+                                            <option value="Neon Colors">Neon Colors </option>
+                                            <option value="Browns">Stiletto</option>
+                                            <option value="Neutral Colors" >Neutral Colors</option>
+                                            <option value="Burgundy">Burgundy </option>
+                                            <option value="Black">Black</option>
+                                            <option value="White">White</option>
+                                            <option value="Other">I have a specific color </option>
+                                    </select>
+                                </div>
+                                {
+                                        bookingInfo.nailPolish === "Other" ? 
+                                            <div className={bookingInfo.nailShape === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                                {/* <label htmlFor="">Prefered Polish Color:</label> */}
+                                                <br/>
+                                                <input type="text" name="nailPolishOther" id="nailPolishOther" placeholder="Specify a color" required onChange={e => handleInputChange(e)}/>
+                                            </div>
+                                        : ""
+                                    }
                             </div> 
                             : ""
                         }
                         {/* ---------- NAIL INPUTS ---------- */}
+
+                        {/* ---------- HENNA INPUTS ---------- */}
+                        {
+                            bookingInfo.serviceType === "HENNA" ?  
+                            <div>
+                                <h1>TELL US ABOUT YOUR HAND</h1>
+                                <div className={bookingInfo.serviceType === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">How long do you have to have design applied?</label>
+                                    <select disabled={bookingInfo.serviceType === "" ? true : false} name="service" required value={bookingInfo.service} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                        {services.map((val, index) => (
+                                            bookingInfo.serviceType === val.service_type ?
+                                                val.service_live ?
+                                                    <option key={index} value={val.service} >{val.service}</option>
+                                                : ""
+                                            : ""
+                                        ))}
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.service === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">How large would you like the design?</label>
+                                    <select disabled={bookingInfo.service === "" ? true : false} name="hennaSize" required value={bookingInfo.hennaSize} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                            <option value="Small (simple hand)" >Small (simple hand)</option>
+                                            <option value="Medium (hand and partial arm)">Medium (hand and partial arm)</option>
+                                            <option value="Small (simple hand)" >Large (hands, feet and partial arm)</option>
+                                            <option value="Small (simple hand)" >Extra Large (hands, feet and belly)</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.hennaSize === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Do you have a specific design in mind?</label>
+                                    <select disabled={bookingInfo.hennaSize === "" ? true : false} name="hennaDesign" required value={bookingInfo.hennaDesign} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                            <option value={true} >Yes</option>
+                                            <option value={false}>No</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.hennaDesign === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Do you have a specific design in mind?</label>
+                                    <select disabled={bookingInfo.hennaDesign === "" ? true : false} name="hennaColor" required value={bookingInfo.hennaColor} onChange={e => handleInputChange(e)}>
+                                        <option
+                                         value="" defaultValue>Select a service</option>
+                                            <option value="Brown" >Brown</option>
+                                            <option value="Orange-Brown">Orange-Brown </option>
+                                            <option value="Reddish-Brown">Reddish-Brown </option>
+                                    </select>
+                                </div>
+                            </div> 
+                            : ""
+                        }
+                        {/* ---------- HENNA INPUTS ---------- */}
 
 
                         {/* ---------- HAIR INPUTS ---------- */}
@@ -438,10 +707,10 @@ function BookNow() {
                                 <div>
                                     <h1>TELL US ABOUT YOUR HAIR</h1>
                                     <div className={bookingInfo.serviceType === "" ? "book-now-field_hidden" : "book-now-field"}>
-                                        <label htmlFor="">What is your hair type?</label>
+                                        <label htmlFor="">What is your hair texture?</label>
                                         <select disabled={bookingInfo.serviceType === "" ? true : false} name="hairType" type="text" required value={bookingInfo.hairType} onChange={e => handleInputChange(e)}>
                                             <option 
-                                                onChange={bookingInfo.hairType === "" ? bookingInfo.hairClass = "" : "" }
+                                                onChange={bookingInfo.hairType === "" ? bookingInfo.hairDensity = "" : "" }
                                                 value="" defaultValue>Select a type</option>
                                             {hairType.map((val, index) => (
                                                 <option value={val.hair_type} >{val.hair_type}</option>
@@ -449,19 +718,21 @@ function BookNow() {
                                         </select>
                                     </div>
                                     <div className={bookingInfo.hairType === "" ? "book-now-field_hidden" : "book-now-field"}>
-                                        <label htmlFor="">What is your hair type classification?</label>
-                                        <select disabled={bookingInfo.hairType === "" ? true : false}  name="hairClass" required value={bookingInfo.hairClass} onChange={e => handleInputChange(e)}>
+                                        <label htmlFor="">What is your hair density? </label>
+                                        <select disabled={bookingInfo.hairType === "" ? true : false} name="hairDensity" required value={bookingInfo.hairDensity} onChange={e => handleInputChange(e)}>
                                             <option 
-                                                onChange={bookingInfo.hairClass === "" ? bookingInfo.service = "" : "" }
-                                                value="" defaultValue>Select a classification</option>
-                                            {services.map((val, index) => (
-                                                <option value={val.service} >{val.service}</option>
-                                            ))}
+                                                onChange={bookingInfo.hairDensity === "" ? bookingInfo.service = "" : "" }
+                                                value="" defaultValue>Select a density</option>
+                                            <option value="Very Thick">Very Thick</option>
+                                            <option value="Somewhat Thick">Somewhat Thick</option>
+                                            <option value="Medium Thickness">Medium Thickness</option>
+                                            <option value="Thin">Thin</option>
+                                            <option value="Very Thin">Very Thin</option>
                                         </select>
                                     </div>
-                                    <div className={bookingInfo.hairClass === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <div className={bookingInfo.hairDensity === "" ? "book-now-field_hidden" : "book-now-field"}>
                                         <label htmlFor="">What kind of hair service are you looking for?</label>
-                                        <select disabled={bookingInfo.hairClass === "" ? true : false} name="service" required value={bookingInfo.service} onChange={e => handleInputChange(e)}>
+                                        <select disabled={bookingInfo.hairDensity === "" ? true : false} name="service" required value={bookingInfo.service} onChange={e => handleInputChange(e)}>
                                             <option
                                                 value="" defaultValue>Select a service</option>
                                             {services.map((val, index) => (
@@ -500,6 +771,7 @@ function BookNow() {
                                             }
                                         </div>
                                         : "" }
+                                    
                                     {bookingInfo.service === "Locs Extensions" || bookingInfo.service === "Signature Braid Style w/added hair" || bookingInfo.service === "Wig Installation"  ? 
                                         <div>
                                             {/* FOR BRAIDED EXTENSION SERVICES OR EXTENSION/ WEAVE SERVICES */}
@@ -543,6 +815,25 @@ function BookNow() {
                                                 </div> 
                                                 : ""
                                             }
+                                            {bookingInfo.service === "Signature Braid Style w/added hair"  ? 
+                                                <div>
+                                                    {/* FOR BRAIDED EXTENSION SERVICES */}
+                                                    <h2>1B.a. BRAIDED EXTENSION SERVICES</h2>
+                                                    <div className={bookingInfo.hairLoss === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                                        <label htmlFor="">What length would you like your braids</label>
+                                                        <select disabled={bookingInfo.hairLoss === "" ? true : false} name="braidsLength" required value={bookingInfo.braidsLength} onChange={e => handleInputChange(e)}>
+                                                            <option 
+                                                                onChange={bookingInfo.hairLoss === "" ? bookingInfo.braidsLength = "" : "" }
+                                                                value="" defaultValue>Select an answer</option>
+                                                                <option value="BOX BRAIDS BOB (short)" >BOX BRAIDS BOB (short)</option>
+                                                                <option value="18INCHES" >18INCHES</option>
+                                                                <option value="20INCHES" >20INCHES</option>
+                                                                <option value="22INCHES (waist length)" >22INCHES (waist length)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                :""
+                                            }
                                         </div> 
                                         :""
                                     }
@@ -554,7 +845,7 @@ function BookNow() {
                                                 <label htmlFor="">What is your curl pattern? </label>
                                                 <select disabled={bookingInfo.hairType === "" ? true : false} name="curlPattern" required value={bookingInfo.curlPattern} onChange={e => handleInputChange(e)}>
                                                     <option 
-                                                        onChange={bookingInfo.curlPattern === "" ? bookingInfo.hairDensity = "" : "" }
+                                                        onChange={bookingInfo.curlPattern === "" ? bookingInfo.hairCare = "" : "" }
                                                         value="" defaultValue>Select a pattern</option>
                                                     <option value="3A">3A</option>
                                                     <option value="3B">3B</option>
@@ -564,7 +855,7 @@ function BookNow() {
                                                     <option value="4C">4C</option>
                                                 </select>
                                             </div>
-                                            <div className={bookingInfo.curlPattern === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                            {/* <div className={bookingInfo.curlPattern === "" ? "book-now-field_hidden" : "book-now-field"}>
                                                 <label htmlFor="">What is your hair density? </label>
                                                 <select disabled={bookingInfo.curlPattern === "" ? true : false} name="hairDensity" required value={bookingInfo.hairDensity} onChange={e => handleInputChange(e)}>
                                                     <option 
@@ -576,10 +867,10 @@ function BookNow() {
                                                     <option value="Thin">Thin</option>
                                                     <option value="Very Thin">Very Thin</option>
                                                 </select>
-                                            </div>
-                                            <div className={bookingInfo.hairDensity === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                            </div> */}
+                                            <div className={bookingInfo.curlPattern === "" ? "book-now-field_hidden" : "book-now-field"}>
                                                 <label htmlFor="">What kind of hair care do you usually get? </label>
-                                                <select disabled={bookingInfo.hairDensity === "" ? true : false} name="hairCare" required value={bookingInfo.hairCare} onChange={e => handleInputChange(e)}>
+                                                <select disabled={bookingInfo.curlPattern === "" ? true : false} name="hairCare" required value={bookingInfo.hairCare} onChange={e => handleInputChange(e)}>
                                                     <option value="" defaultValue>Select an answer</option>
                                                     <option value="I receive professional care at a salon">I receive professional care at a salon</option>
                                                     <option value="I generally wash and style my hair myself">I generally wash and style my hair myself</option>
@@ -619,6 +910,84 @@ function BookNow() {
                             </div> 
                             : ""
                         }
+
+                        {bookingInfo.service.includes("Wig") ? 
+                            <div>
+                                {/* FOR Wig SERVICES */}
+                                <h2>1D. Wig SERVICES</h2>
+                                <div className={bookingInfo.service === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Has a wig been purchased? </label>
+                                    <select disabled={bookingInfo.service === "" ? true : false} name="wigPurchased" required value={bookingInfo.wigPurchased} onChange={e => handleInputChange(e)}>
+                                        <option 
+                                            onChange={bookingInfo.wigPurchased === "" ? bookingInfo.wigPurchaseAsst = "" : "" }
+                                            value="" defaultValue>Select an answer</option>
+                                        <option value={true}>Yes</option>
+                                        <option value={false}>No</option>
+                                    </select>
+                                </div>
+                                {
+                                    bookingInfo.wigPurchased === true ?
+                                        // If yes redirect to wellcapped.com
+                                        ""
+                                    : <div className={bookingInfo.wigPurchased === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                        <label htmlFor="">Do you need assistance purchasing a wig </label>
+                                        <select disabled={bookingInfo.wigPurchased === "" ? true : false} name="wigPurchaseAsst" required value={bookingInfo.wigPurchaseAsst} onChange={e => handleInputChange(e)}>
+                                            <option 
+                                            onChange={bookingInfo.wigPurchaseAsst === "" ? bookingInfo.wigHairType = "" : "" }
+                                            value="" defaultValue>Select an answer</option>
+                                            <option value={true}>Yes</option>
+                                            <option value={false}>No</option>
+                                        </select>
+                                    </div>
+                                }
+                                <div className={bookingInfo.wigPurchased === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Choose hair type of wig? </label>
+                                    <select disabled={bookingInfo.wigPurchased === "" ? true : false} name="wigHairType" required value={bookingInfo.wigHairType} onChange={e => handleInputChange(e)}>
+                                        <option 
+                                        onChange={bookingInfo.wigHairType === "" ? bookingInfo.wigInstallType = "" : "" }
+                                        value="" defaultValue>Select an answer</option>
+                                        <option value="Synthetic">Synthetic</option>
+                                        <option value="100% human">100% human</option>
+                                        <option value="Custom Made 100% Human Hair">Custom Made 100% Human Hair</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.wigHairType === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">What type of wig are we installing? </label>
+                                    <select disabled={bookingInfo.wigHairType === "" ? true : false} name="wigInstallType" required value={bookingInfo.wigInstallType} onChange={e => handleInputChange(e)}>
+                                        <option 
+                                        onChange={bookingInfo.wigInstallType === "" ? bookingInfo.wigPrice = "" : "" }
+                                        value="" defaultValue>Select an answer</option>
+                                        <option value="360 Frontal">360 Frontal</option>
+                                        <option value="T part wig">T part wig</option>
+                                        <option value="Lace front">Lace front</option>
+                                        <option value="Closure">Closure</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.wigInstallType === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">How much do you spend on wig? </label>
+                                    <select disabled={bookingInfo.wigInstallType === "" ? true : false} name="wigPrice" required value={bookingInfo.wigPrice} onChange={e => handleInputChange(e)}>
+                                        <option 
+                                        onChange={bookingInfo.wigPrice === "" ? bookingInfo.upchargeWigStyle = "" : "" }
+                                        value="" defaultValue>Select an answer</option>
+                                        <option value="<$50">{"<$50"}</option>
+                                        <option value="$50+">$50+</option>
+                                        <option value="$200+">$200+</option>
+                                        <option value="$1,000+">$1,000+</option>
+                                    </select>
+                                </div>
+                                <div className={bookingInfo.wigPrice === "" ? "book-now-field_hidden" : "book-now-field"}>
+                                    <label htmlFor="">Do you need the wig styled? </label>
+                                    <select disabled={bookingInfo.wigPrice === "" ? true : false} name="upchargeWigStyle" required value={bookingInfo.upchargeWigStyle} onChange={e => handleInputChange(e)}>
+                                        <option value="" defaultValue>Select an answer</option>
+                                        <option value={80}>Yes</option>
+                                        <option value={0}>No</option>
+                                    </select>
+                                </div>
+                                
+                                
+                            </div> 
+                            : ""
+                        }
                         {/* ---------- HAIR INPUTS ---------- */}
 
 
@@ -632,7 +1001,7 @@ function BookNow() {
                                         <div className="book-now-field">
                                             <label htmlFor="">Do you have sensitive scalp?</label>
                                             <select name="upchargeScalp" required value={bookingInfo.upchargeScalp} onChange={e => handleInputChange(e)}>
-                                                {/* <option value="" defaultValue>Select an answer</option> */}
+                                                <option value="" defaultValue>Select an answer</option>
                                                 <option value={25}>Yes</option>
                                                 <option value={0}>No</option>
                                             </select>
@@ -642,19 +1011,46 @@ function BookNow() {
                                 <div className="book-now-field">
                                     <label htmlFor="">Do you have available parking?</label>
                                     <select name="upchargeParking" required value={bookingInfo.upchargeParking} onChange={e => handleInputChange(e)}>
-                                        {/* <option value="" defaultValue>Select an answer</option> */}
+                                        <option value="" defaultValue>Select an answer</option>
                                         <option value={0}>Yes</option>
-                                        <option value={25}>No</option>
+                                        <option value={20}>No</option>
                                     </select>
                                 </div>
                                 {
                                     bookingInfo.upchargeParking === "" ? ""
                                     : 
                                         <div className="book-now-field">
-                                            <label htmlFor="">Do you have stairs at your complex?</label>
+                                            <label htmlFor="">Is this a smoke free environment?</label>
+                                            <select name="smokeFree" required value={bookingInfo.smokeFree} onChange={e => handleInputChange(e)}>
+                                                {/* <option value="" defaultValue>Select an answer</option> */}
+                                                <option value="" defaultValue>Select an answer</option>
+                                                <option value={true}>Yes</option>
+                                                <option value={false}>No</option>
+                                            </select>
+                                        </div>
+                                }
+                                {
+                                    bookingInfo.smokeFree === "" ? ""
+                                    : 
+                                        <div className="book-now-field">
+                                            <label htmlFor="">Would you like a quiet service? (the beauty professional would be instructed that you would prefer no conversation)</label>
+                                            <select name="upchargeQuietServ" required value={bookingInfo.upchargeQuietServ} onChange={e => handleInputChange(e)}>
+                                                <option value="" defaultValue>Select an answer</option>
+                                                <option value={50}>Yes</option>
+                                                <option value={0}>No</option>
+                                            </select>
+                                        </div>
+                                }
+                                {
+                                    bookingInfo.upchargeQuietServ === "" ? ""
+                                    : 
+                                        <div className="book-now-field">
+                                            <label htmlFor="">Are there stairs to get to service area?</label>
                                             <select name="upchargeStairs" required value={bookingInfo.upchargeStairs} onChange={e => handleInputChange(e)}>
                                                 {/* <option value="" defaultValue>Select an answer</option> */}
-                                                <option value={10}>Yes</option>
+                                                <option
+                                                 value="" defaultValue>Select an answer</option>
+                                                <option value={20}>Yes</option>
                                                 <option value={0}>No</option>
                                             </select>
                                         </div>
@@ -705,12 +1101,22 @@ function BookNow() {
                                             <label htmlFor="">Review your appointment details:</label>
                                             {/* <h3>{val.description}</h3> */}
                                             <span>
-                                                I want a <strong>{bookingInfo.service} </strong>
-                                                in the <strong>[serviceStyle] </strong> 
+                                                I want a <strong>{bookingInfo.serviceType} </strong>
+                                                in the <strong>{bookingInfo.service} </strong> 
                                                 style. This appointment will take place on <strong>{bookingInfo.date} </strong> 
                                                 at <strong>{formatAMPM(bookingInfo.time)} </strong> 
                                                 in <strong>{bookingInfo.location} </strong> 
-                                                for <strong>${bookingInfo.servicePrice + bookingInfo.upchargeParking + bookingInfo.upchargeScalp + bookingInfo.upchargeStairs} </strong>
+                                                for <strong>
+                                                    ${ 
+                                                        bookingInfo.servicePrice 
+                                                            + (bookingInfo.upchargeParking === "" ? 0 : parseInt(bookingInfo.upchargeParking))
+                                                            + (bookingInfo.upchargeScalp === "" ? 0 : parseInt(bookingInfo.upchargeScalp))
+                                                            + (bookingInfo.upchargeStairs === "" ? 0 : parseInt(bookingInfo.upchargeStairs))
+                                                            + (bookingInfo.upchargeQuietServ === "" ? 0 : parseInt(bookingInfo.upchargeQuietServ))
+                                                            + (bookingInfo.makeupLashes === "" ? 0 : parseInt(bookingInfo.makeupLashes))
+                                                            + (bookingInfo.upchargeWigStyle === "" ? 0 : parseInt(bookingInfo.upchargeWigStyle))
+                                                             
+                                                    } </strong>
                                             </span>
                                         </div>
                                     : ""
