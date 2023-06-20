@@ -58,6 +58,11 @@ const Layout = ({children}) => {
                             </Link>
                         </li>
                         <li className="nav-item" >
+                            <Link className={showMenu ? 'nav-links active' : 'nav-links'} onClick={closeMobileMenu} to={"/playground"}>
+                                Playground
+                            </Link>
+                        </li>
+                        <li className="nav-item" >
                             <Link className={showMenu ? 'nav-links active' : 'nav-links'} onClick={closeMobileMenu} to={"/login"}>
                                 Login
                             </Link>

@@ -25,7 +25,7 @@ const CARD_OPTIONS = {
 }
 
 
-export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo}) {
+export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo, formatAMPM}) {
     const [paymentInfo, setPaymentInfo] = useState({
         fname: "",
         lname: "",
@@ -239,8 +239,16 @@ export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo})
                         </div>
                     </div>
                 : 
-                <div>
-                   <h2> Thank you for booking with BeautyLynk :)</h2> 
+                <div className="FormGroup-confirmMessage">
+                   <span>
+                        You have booked a <strong>{bookingInfo.serviceType} service</strong>
+                        in the <strong>{bookingInfo.service} </strong> 
+                        style. This appointment will take place on <strong>{bookingInfo.date} </strong> 
+                        at <strong>{formatAMPM(bookingInfo.time)} </strong> 
+                        in <strong>{bookingInfo.location}, {bookingInfo.aptState}, {bookingInfo.aptCountry}</strong> 
+                        for <strong>${bookingInfo.totalPrice}</strong>
+                    </span>
+                    <h2> Thank you for booking with BeautyLynk, we will be in contact soon :)</h2> 
                 </div>
             }
             

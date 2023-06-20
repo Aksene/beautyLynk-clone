@@ -1,7 +1,10 @@
 .blogHero-image {
   width: 250px;
+  height: 250px;
   min-height: 250px;
-  background-position: 50% 50%;
+  /* background-position: 50% 47%; */
+  object-position: 50% 4%;
+  object-fit: cover;
   margin-left: auto !important;
   margin-right: auto !important;
   display: block;
@@ -25,12 +28,32 @@
   line-height: 1.2;
   color: #343a40;
 }
+.carousel-container {
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.carousel-wrap {
+  text-align: center;
+  flex: 0 0 50%;
+  max-width: 50%;
+}
 
 .blogHero-posts {
   display: grid;
   grid-template-columns: auto auto auto;
+  /* display: flex;
+  justify-content: center; */
 }
 
+/* .carousel-slide img {
+  width: 40% !important;
+  min-height: 250px !important;
+  background-position: 50% 50% !important;
+  display: block;
+} */
 .blogHero-element {
   align-items: center;
   padding: 1rem;
@@ -40,6 +63,7 @@
   /* padding: 1rem; */
   width: 90%;
   padding-bottom: 1rem;
+  text-align: center;
 }
 
 .blogHero-desc h6 {
