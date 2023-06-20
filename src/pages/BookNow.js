@@ -1307,7 +1307,12 @@ function BookNow() {
                                     <div className={bookingInfo.customWigTexture === "" ? "book-now-field_hidden" : "book-now-field"}>
                                         <div>
                                             <label htmlFor="">Do you want custom color hair? </label>
-                                            <p className={bookingInfo.customWigTexture === "" ? "book-now-field_noteHidden" : "book-now-field_note"} >* BeautyLynk uses the  <a className="book-now-field_note" target="_blank" href="https://www.madison-reed.com/hair-color-chart?utm_source=google&utm_medium=cpcbrand&utm_campaign=Madison_Reed-GGL-Core-B-Trademark-SEM-New-NA-Exact-NA&utm_campaignid=14039505012&utm_adgroupid=150612185228&utm_adid=655091100708&utm_keyword=madison%20reed%20hair%20color&utm_keywordid=kwd-77692752394&utm_network=g&utm_content=150612185228&gad=1&gclid=CjwKCAjwp6CkBhB_EiwAlQVyxT0qqc7X0_-2kvMElnors97sUUUYyD8JiSKb_eXXD-Ou5W-LXUTBwxoC0i4QAvD_BwE">Madison Reed</a> color scheme.</p>
+                                            <p className={bookingInfo.customWigTexture === "" ? "book-now-field_noteHidden" : "book-now-field_note"} >
+                                                * BeautyLynk uses the  <a target="_blank" href="https://www.madison-reed.com/hair-color-chart?utm_source=google&utm_medium=cpcbrand&utm_campaign=Madison_Reed-GGL-Core-B-Trademark-SEM-New-NA-Exact-NA&utm_campaignid=14039505012&utm_adgroupid=150612185228&utm_adid=655091100708&utm_keyword=madison%20reed%20hair%20color&utm_keywordid=kwd-77692752394&utm_network=g&utm_content=150612185228&gad=1&gclid=CjwKCAjwp6CkBhB_EiwAlQVyxT0qqc7X0_-2kvMElnors97sUUUYyD8JiSKb_eXXD-Ou5W-LXUTBwxoC0i4QAvD_BwE">Madison Reed</a> color scheme.
+                                            </p>
+                                            <p className={bookingInfo.skinType === "" ? "book-now-field_noteHidden" : "book-now-field_note"}>
+                                                * BeautyLynk uses the <a href="https://www.sephora.com/product/pro-filtr-soft-matte-longwear-foundation-P87985432" target="_blank">Fenty</a> foundation shade.
+                                            </p>
                                         </div>
                                         <select disabled={bookingInfo.customWigTexture === "" ? true : false} name="upchargeCustomWigColor" required value={bookingInfo.upchargeCustomWigColor} onChange={e => handleInputChange(e)} style={{height: "70%"}}>
                                             <option 
