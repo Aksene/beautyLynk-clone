@@ -313,7 +313,7 @@ function Dashboard() {
                                             <h4> Stripe Connect ID: {info.stripeConnect}</h4>
                                         </div> 
                                     : <div className="stripe-connect_button">
-                                        <form action="//https://beautylynk-clone-server.vercel.app/onboard-user" method="POST">
+                                        <form action="//beautylynk-clone-server.vercel.app/onboard-user" method="POST">
                                             <button type="submit">
                                                 {/* <img src="/public/stripe.webp" alt="" /> */}
                                             </button>
