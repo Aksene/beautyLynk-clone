@@ -1,0 +1,407 @@
+.stylist_profile-container {
+  position: relative;
+  /* top: 0px; */
+}
+.stylist_profile {
+  position: relative;
+  top: 55px;
+  /* height: 100%; */
+}
+
+.stylist_profile-nav {
+  display: flex;
+  flex-direction: row;
+  /* top: 30px;
+  padding-top: -1px;
+  position: relative; */
+}
+
+.stylist_profile-nav_left,
+.stylist_profile-nav_right {
+  position: relative;
+  z-index: 1;
+}
+
+.stylist_profile-nav_right {
+  position: absolute;
+  right: 25px;
+  /* top: 5px; */
+}
+
+.stylist_profile-nav_left {
+  display: flex;
+  gap: 2rem;
+  left: 25px;
+}
+
+.back-button img {
+  width: 50px;
+  height: 25px;
+}
+
+.back-button {
+  /* background-color: #2c535767; */
+  background-color: white;
+  color: white;
+  border-color: #2c535767;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.back-button:hover {
+  background-color: #2c535767;
+  border-color: #2c535767;
+  transition: ease-in 0.2s;
+}
+
+.profile_edit-wrap button,
+.stylist_profile-nav_right button {
+  margin-bottom: -5px;
+  height: fit-content;
+  width: 100px;
+  background-color: #b8336dd3;
+  color: white;
+  border-color: #b8336c;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.profile_edit-wrap button:hover,
+.stylist_profile-nav_right button:hover {
+  background-color: #3a1123d3;
+  border-color: #3a1123d3;
+  transition: ease-in 0.2s;
+}
+
+.profile-upload-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap-reverse;
+}
+
+.profile-input-wrap {
+  background-color: #b8336d44;
+  margin-top: 1rem;
+  padding: 1rem;
+  padding-bottom: 3rem;
+  border-radius: 1rem;
+}
+
+.profile-input-wrap button {
+  position: absolute;
+  right: 40%;
+}
+.profile-upload-wrap input {
+  /* padding: 3rem; */
+}
+
+.profile-hero {
+  top: -99.5px;
+  margin-bottom: -121px;
+  height: 500px;
+  width: 100%;
+  position: relative;
+  /* background-image: url("/frontend/public/newProfile.png");
+  background-color: #cccccc; */
+  /* z-index: -1; */
+}
+
+.profile-hero_cover {
+  top: 5px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  object-fit: cover;
+  object-position: 50% 35%;
+  filter: blur(15px);
+  /* filter: brightness(40%); */
+  z-index: -1;
+}
+
+#brightnessfilter {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#transparent {
+  position: relative;
+  /* top: 400px; */
+  width: 100%;
+  height: 510px;
+  background-color: rgba(0, 0, 0, 0.562);
+  /* border-radius: 8px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#transparent img {
+  top: 10px;
+  width: 25%;
+  position: absolute;
+  /* display: block;
+    margin-left: auto;
+    margin-right: auto; */
+  /* width: 50%; */
+}
+
+#text {
+  color: white;
+  font-weight: bold;
+  position: relative;
+  top: 14rem;
+  font-size: xxx-large;
+  /* left: 9px; */
+  /* font-size: 16px; */
+}
+
+.profile-body {
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.highlight-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.profile-highlight {
+  height: 300px;
+  width: 200px;
+  background-color: #b8336c;
+}
+.profile-highlightMain {
+  background-color: #b8336c;
+}
+
+.about-section {
+  text-align: left;
+  background-color: #e9e9e94d;
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.info-section-header {
+  text-align: center;
+}
+
+.speciality-section {
+  margin-top: -0.2rem;
+  /* background-color: #e9e9e962; */
+  padding: 1rem;
+  box-sizing: border-box;
+  padding-bottom: 5rem;
+}
+
+.speciality-section h1 {
+  /* color: white; */
+  text-align: center;
+}
+
+.tile__grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* grid-template-rows: 1fr; */
+  height: 100%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.speciality-col {
+  height: 250px;
+  font-size: 4.5em;
+  margin: 15px;
+  padding: 10px;
+  opacity: 0.9;
+  color: #1c3723;
+  background-color: rgba(255, 255, 255, 0.61);
+  border: 2px solid white;
+  vertical-align: middle;
+  text-align: center;
+  border-radius: 5px;
+  display: table;
+  box-shadow: 4px 5px 4px 3px #b8336d59;
+  overflow: hidden;
+  transition: all 0.4s ease 0s;
+}
+
+.speciality-col_title {
+  font-size: large;
+  padding: 1rem;
+}
+
+.speciality-col img {
+  width: 50%;
+  padding: 1rem;
+}
+
+.speciality-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 18px;
+}
+
+.speciality-col:hover {
+  transform: scale(1.05);
+  overflow: hidden;
+  background-color: white;
+  border: 2.4px solid #b8336c;
+}
+
+.speciality-col p1 {
+  font-size: 2rem;
+}
+
+/* .speciality-info input {
+  height: 100%;
+  width: 100%;
+  -webkit-appearance: checkbox;
+  color: #b8336c;
+} */
+
+.speciality-info input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+  top: 110px;
+  z-index: 1;
+}
+
+.checkmark {
+  position: absolute;
+  /* top: 0;
+  left: 0; */
+  top: 110px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.speciality-info:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.speciality-info input:checked ~ .checkmark {
+  background-color: #b8336c;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.speciality-info input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.speciality-info .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.speciality-save_btn {
+  margin-bottom: -5px;
+  /* height: fit-content; */
+  width: 200px;
+  height: 75px;
+  background-color: #b8336c;
+  color: white;
+  border-color: #b8336c;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.speciality-save_btn_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.highlight-header-wrap {
+  display: grid;
+  grid-template-columns: 4fr 0.3fr;
+  width: 100%;
+  text-align: center;
+}
+
+.highlight-section-header {
+  margin-left: 10rem;
+}
+.highlight-btn_wrap button {
+  height: fit-content;
+  width: 100px;
+  background-color: #b8336dd3;
+  color: white;
+  border-color: #b8336c;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: large;
+  font-weight: 600;
+  padding: 5px;
+}
+.highlight-btn_wrap button:hover {
+  background-color: #b43a6fd3;
+  border-color: #583a5e94;
+  transition: ease-in 0.2s;
+  cursor: pointer;
+}
+.highlight-edit_wrap {
+  display: flex;
+  /* grid-template-columns: auto auto auto; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.highlight-card img {
+  width: 100%;
+  height: 100%;
+  max-width: 470px;
+  max-height: 500px;
+}
+
+.profile_carousel-wrap {
+  text-align: center;
+  flex: 0 0 70%;
+  max-width: 60%;
+  height: 510px;
+}
+.carousel-slide {
+  height: 100%;
+}

@@ -45,3 +45,43 @@
   font-weight: 50;
   font-size: 1.25rem;
 }
+
+@media (max-width: 800px) {
+  .how_wrap {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    color: white;
+  }
+  .how_header h3 {
+    line-height: 1.1;
+  }
+  .how_header h1 {
+    font-size: 2.5rem;
+    font-weight: bolder;
+  }
+  .how_header h3 {
+    font-size: 1.75rem;
+    font-weight: 300;
+  }
+  .how-body span {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .how-element h5 {
+    /* font-weight: 50; */
+    font-size: 1.1rem;
+  }
+  .how-body h3 {
+    font-size: 1rem;
+  }
+
+  .how-body {
+    display: grid;
+    gap: 0.25rem;
+    padding-left: 1.5rem;
+    grid-template-columns: auto auto;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: auto;
+  }
+}

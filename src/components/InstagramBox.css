@@ -60,3 +60,19 @@
   top: 4px;
   right: -6px;
 }
+
+@media (max-width: 800px) {
+  .button-container {
+    display: flex;
+    justify-content: center;
+  }
+  .instagram-button {
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+  }
+  .instagram-container h1,
+  .instagram-sub {
+    line-height: 1.2;
+  }
+}

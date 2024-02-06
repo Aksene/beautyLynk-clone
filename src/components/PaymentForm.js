@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { supabase } from '../database/Database'
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import axios from "axios"
 import "./PaymentForm.css"
@@ -25,7 +26,8 @@ const CARD_OPTIONS = {
 }
 
 
-export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo, formatAMPM}) {
+
+export default function PaymentForm( {setBookingInfo, bookingInfo, formatAMPM}) {
     const [paymentInfo, setPaymentInfo] = useState({
         fname: "",
         lname: "",
@@ -38,13 +40,15 @@ export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo, 
         country: bookingInfo.aptCountry,
         postal_code: bookingInfo.aptZip,
         price: bookingInfo.servicePrice*100,
-        description: bookingInfo.service
+        description: bookingInfo.service,
+        paymentIntent: "",
     })
     const [success, setSuccess] = useState(false)
     const [showAddress, setShowAddress] = useState(true)
     const stripe = useStripe()
     const elements = useElements()
     const [stripeRes, setStripeRes] = useState({})
+    var paymentIntent
 
     useEffect(() => {
         console.log("Passed Booking info: ", bookingInfo)
@@ -92,17 +96,22 @@ export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo, 
             try {
                 const {id} = paymentMethod 
                 const response = await axios.post("https://beautylynk-clone-server.vercel.app/payment", {
+                // const response = await axios.post("http://localhost:4000/payment", {
                     amount: bookingInfo.totalPrice*100,
                     id: id,
                     description: `${paymentInfo.description} for ${paymentInfo.fname} ${paymentInfo.lname}`,
                     email: paymentInfo.email
                 })
-
+                console.log("Stripe 35 | data raw", response);
                 console.log("Stripe 35 | data", response.data.success);
                 if(response.data.success) {
                     console.log("Successful payment!")
                     setSuccess(true)
+                    console.log("Payment Intent ID:",response.data.payment.id)
+                    paymentIntent = response.data.payment.id
+                    paymentInfo["paymentIntent"] = response.data.payment.id
                     handleBookingInfoFormSubmit(e)
+
                 }
             } catch (error) {
                 console.log("Error", error)
@@ -110,7 +119,139 @@ export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo, 
         } else {
             console.log(error.message)
         }
+
+        console.log("Payment Intent OBJ:",paymentIntent)
+
     }
+
+    const handleBookingInfoFormSubmit = async(e) => {
+        e.preventDefault();
+        console.log("event: Booking info: ", bookingInfo)
+
+        // const formData = {
+        //     location: "",
+        //     service: "",
+        //     date: "",
+        //     time: "",
+        // }
+
+        // setBookingInfo(formData)
+
+        const newBooking = { ...bookingInfo}
+        const newPayment = { ...paymentInfo}
+
+        console.log("Booking to be sent to supabase",newBooking)
+        console.log("Payment to be sent to supabase",newPayment)
+
+        if(newBooking) {
+            // With upsert, if upload exist it updates it and if not it will insert a new row
+            const {data, error} = await supabase.from("BeautyLynk_Bookings").insert({
+                location: newBooking.location,
+                service: newBooking.service,
+                serviceType: newBooking.serviceType,
+                serviceDesc: `You have booked a ${bookingInfo.serviceType} service in the ${bookingInfo.service} style. This appointment will take place on ${bookingInfo.date} at ${formatAMPM(bookingInfo.time)} in ${bookingInfo.location}, ${bookingInfo.aptState}, ${bookingInfo.aptCountry} for $${bookingInfo.totalPrice}`,
+                date: newBooking.date,
+                time: newBooking.time,
+                timezone: newBooking.timezone,
+                firstName: newPayment.fname,
+                lastName: newPayment.lname,
+                email: newPayment.email,
+                phoneNum: newPayment.phone,
+                aptAddress1: newBooking.aptAddress1,
+                aptAddress2: newBooking.aptAddress2,
+                aptCity: newBooking.aptCity,
+                aptState: newBooking.aptState,
+                aptCountry: newBooking.aptCountry,
+                aptZip: newBooking.aptZip,
+                totalPrice: newBooking.totalPrice,
+                payout: newBooking.payout,
+                service_detail: newBooking.hairServiceDetail,
+                hairExt: newBooking.hairExt === "" ? false : newBooking.hairExt,
+                hairExtType: newBooking.hairExtType,
+                hairClass: newBooking.hairClass,
+                hairType: newBooking.hairType,
+                hairLoss: newBooking.hairLoss === "" ? false : newBooking.hairLoss,
+                hairLossDiag: newBooking.hairLossDiag === "" ? false : newBooking.hairLossDiag,
+                hairLossCause: newBooking.hairLossCause,
+                curlPattern: newBooking.curlPattern,
+                hairDensity: newBooking.hairDensity,
+                hairDry: newBooking.hairDry === "" ? false : newBooking.hairDry,
+                locTime: newBooking.locTime,
+                locColor: newBooking.locColor === "" ? false : newBooking.locColor,
+                childSupervision: newBooking.childSupervision === "" ? false : newBooking.childSupervision,
+                braidsSize: newBooking.braidsSize,
+                braidsLength: newBooking.braidsLength,
+                cornrowsCount: newBooking.cornrowsCount,
+                upchargeCornrowsCount: newBooking.upchargeCornrowsCount,
+                upchargeBraidsLength: newBooking.upchargeBraidsLength,
+                upchargeBraidsSize: newBooking.upchargeBraidsSize,
+                cornrowsStyle: newBooking.cornrowsStyle,
+                wigPurchased: newBooking.wigPurchased === "" ? false : newBooking.wigPurchased,
+                wigPurchaseAsst: newBooking.wigPurchaseAsst === "" ? false : newBooking.wigPurchaseAsst,
+                wigHairType: newBooking.wigHairType,
+                wigInstallType: newBooking.wigInstallType,
+                wigPrice: newBooking.wigPrice,
+                upchargeWigStyle: newBooking.upchargeWigStyle,
+                customWigSizeCheck: newBooking.customWigSizeCheck === "" ? false : newBooking.customWigSizeCheck,
+                customWigSize: newBooking.customWigSize,
+                customWigSizeCirc: newBooking.customWigSizeCirc,
+                customWigSizeNape: newBooking.customWigSizeNape,
+                customWigSizeForehead: newBooking.customWigSizeForehead,
+                customWigSizeOverlap: newBooking.customWigSizeOverlap,
+                customWigSizeTempleBack: newBooking.customWigSizeTempleBack,
+                customWigSizeNeck: newBooking.customWigSizeNeck,
+                customWigColor: newBooking.customWigColor,
+                customWigInstallType: newBooking.customWigInstallType,
+                customWigHairType: newBooking.customWigHairType,
+                customWigStyle: newBooking.customWigStyle,
+                customWigDensity: newBooking.customWigDensity,
+                customWigTexture: newBooking.customWigTexture,
+                customWigHeadMeasurement: newBooking.customWigHeadMeasurement,
+                customWigReason: newBooking.customWigReason,
+                upchargeCustomWigDensity: newBooking.upchargeCustomWigDensity === "" ? false : newBooking.upchargeCustomWigDensity,
+                skinType: newBooking.skinType,
+                skinComplexion: newBooking.skinComplexion,
+                allergies: newBooking.allergies === "" ? false : newBooking.allergies,
+                skinConditions: newBooking.skinConditions === "" ? false : newBooking.skinConditions,
+                makeupLook: newBooking.makeupLook,
+                makeupLashes: newBooking.makeupLashes,
+                hennaSize: newBooking.hennaSize,
+                upchargeHennaSize: newBooking.upchargeHennaSize,
+                hennaDesign: newBooking.hennaDesign === "" ? false : newBooking.hennaDesign,
+                hennaLength: newBooking.hennaLength,
+                hennaColor: newBooking.hennaColor,
+                nailDesc: newBooking.nailDesc,
+                nailShape: newBooking.nailShape,
+                nailPolish: newBooking.nailPolish,
+                nailPolishOther: newBooking.nailPolishOther,
+                pet: newBooking.pet,
+                petType: newBooking.petType,
+                specialAcc: newBooking.specialAcc,
+                specialAccType: newBooking.specialAccType,
+                upchargeParking: newBooking.upchargeParking,
+                upchargeScalp: newBooking.upchargeScalp === "" ? 0 : parseInt(bookingInfo.upchargeScalp),
+                upchargeStairs: newBooking.upchargeStairs,
+                upchargeQuietServ: newBooking.upchargeQuietServ,
+                smokeFree: newBooking.smokeFree,
+                stripeIntent: paymentInfo.paymentIntent,
+            })
+            if(error) {
+                console.log(error)
+                alert(error.message)
+            }
+            if(data) {
+                console.log(data)
+                setBookingInfo({
+                    location: "",
+                    service: "",
+                    date: "",
+                    time: "",
+                })
+            }
+        }
+    }
+
+    
 
     const uploadPaymentInfo = async(e) => {
         // Upload payment information to Supabase 
@@ -241,11 +382,11 @@ export default function PaymentForm( {handleBookingInfoFormSubmit, bookingInfo, 
                 : 
                 <div className="FormGroup-confirmMessage">
                    <span>
-                        You have booked a <strong>{bookingInfo.serviceType} service</strong>
+                        You have booked a <strong>{bookingInfo.serviceType} service </strong>
                         in the <strong>{bookingInfo.service} </strong> 
                         style. This appointment will take place on <strong>{bookingInfo.date} </strong> 
                         at <strong>{formatAMPM(bookingInfo.time)} </strong> 
-                        in <strong>{bookingInfo.location}, {bookingInfo.aptState}, {bookingInfo.aptCountry}</strong> 
+                        in <strong>{bookingInfo.location}, {bookingInfo.aptState}, {bookingInfo.aptCountry} </strong> 
                         for <strong>${bookingInfo.totalPrice}</strong>
                     </span>
                     <h2> Thank you for booking with BeautyLynk, we will be in contact soon :)</h2> 

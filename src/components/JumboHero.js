@@ -16,6 +16,7 @@ function JumboHero() {
         serviceType: "",
         date: "",
         time: "",
+        timezone:"",
     })
     const [cities, setCities] = useState([])
     const [services, setServices] = useState([])
@@ -164,7 +165,18 @@ function JumboHero() {
                             <input className="booking-field_input" type="date" name="date" required value={bookingInfo.date} onChange={e => handleInputChange(e)}/>
                         </div>
                         <div className="booking-field">
-                            <input className="booking-field_input" type="time" name="time" required value={bookingInfo.time} onChange={e => handleInputChange(e)}/>
+                            <input className="booking-field_input"  type="time" name="time" required value={bookingInfo.time} onChange={e => handleInputChange(e)}/>
+                        </div>
+                        <div className="booking-field">
+                                <select className="booking-field_select"  name="timezone" id="timezone" name="timezone" required value={bookingInfo.timezone} onChange={e => handleInputChange(e)}>
+                                    <option value="" defaultValue>Select a time zone</option>
+                                    <option value="Eastern Time Zone">Eastern Time Zone</option>
+                                    <option value="Central Time Zone">Central Time Zone</option>
+                                    <option value="Mountain Time Zone">Mountain Time Zone</option>
+                                    <option value="Pacific Time Zone">Pacific Time Zone</option>
+                                    <option value="Hawaiian Time Zone">Hawaiian Time Zone</option>
+                                    <option value="Alaskan Time Zone">Alaskan Time Zone</option>
+                                </select>                        
                         </div>
                         <div className="booking-field">
                             <Link to="/book-now" state={{homeInfo: bookingInfo}}>

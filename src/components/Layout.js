@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import './Layout.css'
 import { Link } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link';
+import { useAuth2 } from '../Auth/auth2'
+import { useNavigate } from "react-router-dom";
+
 // import abdousWorld from '/images/abdousWorld.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
@@ -12,6 +15,17 @@ const Layout = ({children}) => {
     const [showMenu, setShowMenu] = useState(false)
     const closeMobileMenu = () => setShowMenu(false);
 
+    let navigate = useNavigate();
+    const auth = useAuth2()
+
+
+    const handleLogout = async(e) => {
+        e.preventDefault()
+
+        auth.Logout()
+        navigate("../", { replace: true });
+
+    }
 
     return (
         <div>
@@ -23,7 +37,7 @@ const Layout = ({children}) => {
                     </Link>
                 </div>
 
-                <div className="menu-icon" onClick={() => setShowMenu(!showMenu)}>
+                <div className={showMenu ? 'menu-icon active' : 'menu-icon'} onClick={() => setShowMenu(!showMenu)}>
                     {
                             showMenu ?
                             <FontAwesomeIcon
@@ -57,23 +71,44 @@ const Layout = ({children}) => {
                                 Advisor
                             </Link>
                         </li>
-                        <li className="nav-item" >
+                        {/* <li className="nav-item" >
                             <Link className={showMenu ? 'nav-links active' : 'nav-links'} onClick={closeMobileMenu} to={"/playground"}>
                                 Playground
                             </Link>
-                        </li>
-                        <li className="nav-item" >
-                            <Link className={showMenu ? 'nav-links active' : 'nav-links'} onClick={closeMobileMenu} to={"/login"}>
-                                Login
-                            </Link>
-                        </li>
+                        </li> */}
+                        {auth.user ? 
+                                <>
+                                    <li className="nav-item">
+                                        <Link className={showMenu ? 'nav-links active' : 'nav-links'} to={"/dashboard"} onClick={closeMobileMenu}>
+                                            Dashboard
+                                        </Link>
+                                    </li>
+
+                                    {/* {showAdminTabs()} */}
+
+                                    <li onClick={closeMobileMenu} className="nav-item">
+                                        <a className={showMenu ? 'nav-links-red active' : 'nav-links-red'} onClick={auth.Logout} to={"/log-out"}>
+                                            <button className="nav-btn" onClick={handleLogout} to={"/log-out"}>Log-out</button>
+                                        </a>
+                                    </li>
+                                </>
+                                :
+                                <li className="nav-item">
+                                    <Link className={showMenu ? 'nav-links active' : 'nav-links'} onClick={closeMobileMenu} to={"/login"}>
+                                        Login
+                                    </Link>
+                                </li>
+                            }
                     </ul>
                 </div>
 
             </header>
 
             <main>
+            <div className={showMenu ? 'no-scroll' : ''}>
                 {children}
+            </div>
+                
             </main>
 
             <footer>
@@ -88,23 +123,23 @@ const Layout = ({children}) => {
                         <ul>
                             <h3 className="footer-cat_header">Company</h3>
                             <li className="footer-cat_links">
-                                <Link to="/about-us/#ceo">
+                                <Link to="https://form.typeform.com/to/WXlKI39T?typeform-source">
                                         <span>Join the Team</span>
                                 </Link>
                                 
                             </li>
-                            <li className="footer-cat_links">
+                            {/* <li className="footer-cat_links">
                                 <a href="/team">
                                     <span>Our Professionals</span>
                                 </a>
-                            </li>
+                            </li> */}
                             <li className="footer-cat_links">
                                 <Link to="/book-now" state={{homeInfo: ""}}>
                                     <span>Book Now</span>
                                 </Link>
                             </li>
                             <li className="footer-cat_links">
-                                <a href="/about-us/#about">
+                                <a href="/about-us/">
                                         <span>About Us</span>
                                 </a>
                             </li>
@@ -114,19 +149,19 @@ const Layout = ({children}) => {
                         <ul>
                             <h3 className="footer-cat_header">Connect</h3>
                             <li className="footer-cat_links">
-                                <a href="/services">
+                                <a href="//twitter.com">
                                     <span>Twitter</span>
                                 </a>
                             </li>
                             <li className="footer-cat_links">
-                                <a href="/services/#goods">
+                                <a href="//instagram.com/">
                                     <span>Instagram</span>
                                 </a>
                             </li>
                             <li className="footer-cat_links">
-                                <div>
+                                <a href="/contact-us">
                                     <span>Contact Us</span>
-                                </div>
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -170,7 +205,7 @@ const Layout = ({children}) => {
                     <div className="footer-icon-group">
                         <ul>
                             <li>
-                                <Link to="//google.com" target='_blank'>
+                                <Link to="/faq" target='_blank'>
                                     FAQ
                                 </Link>
                             </li>

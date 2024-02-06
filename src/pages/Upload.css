@@ -1,0 +1,80 @@
+.uploadImages-layout {
+  display: flex;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.uploadImages-form-grid {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.uploadImages-form-group-top {
+  margin: auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.uploadImage-form-preview {
+  padding: 30px;
+}
+
+.choose-image-label {
+  padding-right: 20px;
+}
+
+.uploadImages-form-button {
+  width: 200px;
+  /* height: 100px; */
+  background-color: #b8336c;
+  color: #fcfcfc;
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  /* padding: 1rem 1.5rem; */
+  position: relative;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+
+.uploadImages-form-button:after {
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  border: 1px solid #d62874;
+  content: "";
+  transition: all 0.2s;
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 10px;
+}
+
+.uploadImages-form-button:hover::after {
+  width: 100%;
+  height: 100%;
+  top: 5px;
+  right: -7px;
+}
+
+.uploadImages-form-button h3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(0%, -50%);
+}
+
+.form-group-bottom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  /* border: 3px solid green; */
+}

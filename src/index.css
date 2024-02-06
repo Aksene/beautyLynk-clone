@@ -1,3 +1,12 @@
+:root {
+  --brand-color: #a80379;
+  --dark-color: #1e293b;
+  --mid-color: #cbd5e1;
+  --light-color: #f8fafc;
+  --hover-color: #fc39c5;
+  --other-color: #562361;
+}
+
 @font-face {
   font-family: MyFont;
   src: url(../public/beautylynk-gothic/CenturyGothicStd.otf) format("truetype");

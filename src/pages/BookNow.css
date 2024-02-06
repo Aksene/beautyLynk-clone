@@ -22,7 +22,7 @@
 
 .book-now-field,
 .book-now-field_dets {
-  transition-duration: 1s;
+  transition-duration: 0.5s;
   /* color: rgba(128, 128, 128, 0.281); */
   padding: 0.6rem;
   border-bottom: 1.5px solid #2d2d2d13;
@@ -35,8 +35,8 @@
   border-bottom-color: #b8336c;
 }
 .book-now-field_hidden {
-  transition-duration: 1s;
-  color: rgba(189, 188, 188, 0.281);
+  transition-duration: 0.5s;
+  color: rgba(189, 188, 188, 0.281) !important;
   border-color: rgba(189, 188, 188, 0.281);
   padding: 0.6rem;
 }
@@ -69,8 +69,24 @@
   margin-left: auto;
 }
 
-.book-now-field input,
-select {
+.book-now_time {
+  display: flex;
+  gap: 5px;
+}
+
+.book-now_time input,
+.book-now_time select {
+  justify-content: start;
+  align-items: flex-start;
+  width: 235px !important;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  padding: 10px;
+}
+
+/* .book-now-field input,
+.book-now_time select {
   justify-content: start;
   align-items: flex-start;
   width: 500px;
@@ -78,11 +94,11 @@ select {
   margin-left: auto;
   font-size: 1.2rem;
   padding: 10px;
-}
+} */
 
 .book-now-field label {
   font-size: 1.2rem;
-  align-items: center;
+  /* align-items: center; */
   display: flex;
 }
 
@@ -150,18 +166,30 @@ select {
 }
 
 .book-now-field span {
-  /* display: flex;
-  justify-content: start;
-  align-items: flex-start; */
   width: 500px;
   margin-right: 0;
   margin-left: auto;
   font-size: 1.2rem;
   position: relative;
-  /* top: -1.3rem; */
-  /* padding: 10px; */
 }
 
+.book-now-field_hidden span {
+  width: 500px;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 1.2rem;
+  position: relative;
+  color: rgba(189, 188, 188, 0.281);
+}
+
+.book-now-field_hidden button {
+  font-size: 1.2rem;
+  position: relative;
+  color: rgba(189, 188, 188, 0.281);
+}
+.book-now-field_hidden button {
+  pointer-events: none;
+}
 #book-now-fieldDesc {
   height: 5rem;
 }
@@ -176,7 +204,6 @@ select {
   letter-spacing: 0.05rem;
   padding: 1rem 1.5rem;
   position: relative;
-  z-index: 2;
   border-radius: 10px;
   cursor: pointer;
   margin-bottom: 50px;
@@ -186,7 +213,7 @@ select {
   width: 90%;
   height: 90%;
   background-color: transparent;
-  border: 1px solid #b8336c;
+  border: 1px solid #d62874;
   content: "";
   transition: all 0.2s;
   z-index: -1;
@@ -214,7 +241,7 @@ select {
 .booking-address-fields {
   display: grid;
   grid-template-columns: auto;
-  width: 71%;
+  /* width: 71%; */
   margin-left: auto;
 }
 
@@ -277,4 +304,165 @@ input {
   color: rgba(172, 105, 155, 0.281);
   border-color: rgba(189, 188, 188, 0.281);
   font-size: small;
+}
+
+.react-calendar__navigation {
+  display: flex;
+  padding-bottom: 2rem;
+}
+
+.react-calendar__tile_hidden {
+  color: rgba(189, 188, 188, 0.281) !important;
+  background-color: #2d2d2d00;
+  border-color: #e0277715;
+  border: none;
+  border-radius: 1rem;
+  font-family: MyFont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.react-calendar__tile,
+.react-calendar__tile_hidden {
+  /* color: rgba(189, 188, 188, 0.281); */
+  background-color: #2d2d2d00;
+  border-color: #e0277715;
+  border: none;
+  border-radius: 1rem;
+  font-family: MyFont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  -webkit-font-smoothing: antialiased;
+  font-size: 1rem;
+  padding: 10px;
+}
+
+.react-calendar__tile:hover {
+  color: #e02777;
+  background-color: #e027776b;
+  transition: ease-in 0.1s;
+}
+
+.react-calendar__tile_hidden:hover {
+  background-color: white !important;
+  transition: ease-in 0.1s;
+  pointer-events: none;
+}
+
+.react-calendar__tile--active {
+  color: #e02777;
+  background-color: #e027776b;
+  transition: ease-in 0.1s;
+}
+
+.booking-calender_tile abbr {
+  color: rgba(189, 188, 188, 0.281) !important;
+}
+.react-calendar__navigation__label {
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+
+.react-calendar__navigation__arrow {
+  width: 10%;
+  height: 40px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: larger;
+}
+
+.react-calendar__navigation__arrow:hover {
+  color: #e02777;
+  background-color: #e027776b;
+  border: #e02777;
+}
+
+abbr[title] {
+  text-decoration: none;
+  padding: 1rem;
+}
+
+@media (max-width: 800px) {
+  .book-now-field_hidden,
+  .book-now-field {
+    grid-template-columns: 1fr !important;
+    padding: 1rem;
+    height: 100%;
+    margin-right: auto;
+    margin-left: 0;
+  }
+  .book-now_time {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr !important;
+    /* flex-direction: column; */
+    gap: 1rem;
+    width: 95%;
+  }
+  /* .book-now_time-ZONE {
+    width: 350px !important;
+    margin-left: 0;
+  } */
+  .book-now_time input,
+  .book-now_time select {
+    width: 100% !important;
+    margin-left: 0;
+    font-size: 1rem;
+  }
+  .book-now-field input,
+  .book-now-field_hidden input {
+    width: 88% !important;
+    margin-left: 0;
+  }
+  #main-viewport {
+    width: -webkit-fill-available;
+    padding-right: 5%;
+  }
+
+  .react-calendar {
+    width: -webkit-fill-available;
+    margin-right: 10%;
+  }
+  .book-now-field label {
+    padding-bottom: 10px;
+  }
+  .form-wrap {
+    gap: 1rem;
+  }
+  .book-now-field_hidden input,
+  select {
+    width: 95%;
+    margin-left: 0;
+  }
+  .book-now-field:hover {
+    transition-duration: 0.5s;
+    background-image: none;
+    border-bottom-color: #b8336c;
+  }
+  .react-calendar__tile,
+  .react-calendar__tile_hidden {
+    font-size: 1rem;
+    padding: 5px;
+  }
+  .form-wrap {
+    padding: 2rem;
+    width: 98%;
+  }
+  .book-now-field span {
+    width: 100%;
+  }
+  .booking-address-fields {
+    display: grid;
+    grid-template-columns: auto;
+    width: 100%;
+    margin-left: auto;
+  }
+  .book-now-field_note-input {
+    height: 100% !important;
+  }
+  .book-now-field_note a {
+    text-decoration: underline;
+  }
 }

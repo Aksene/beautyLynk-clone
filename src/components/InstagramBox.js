@@ -9,7 +9,9 @@ function InstagramBox() {
                 <h3 className="instagram-sub">Follow us and like our photos.</h3>
                 <br />
                 <br />
-                <a className="instagram-button" href="//"> Visit our Page</a>
+                <div className="button-container">
+                    <a className="instagram-button" href="//"> Visit our Page</a>
+                </div>
             </div>
         </div>
     )

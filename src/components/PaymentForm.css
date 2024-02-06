@@ -150,3 +150,36 @@ input {
 .FormGroup {
   padding-bottom: 3rem;
 }
+
+@media (max-width: 800px) {
+  .FormGroup-container {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 2rem;
+    border-width: 0px;
+  }
+  .address-fields select,
+  input {
+    width: 78%;
+    margin-left: 0;
+    margin-right: auto;
+    font-size: 1.2rem;
+    padding: 10px;
+    appearance: none;
+  }
+  .address-fields label,
+  .name-fields label,
+  .FormRow label {
+    width: 78%;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 10px;
+    appearance: none;
+  }
+  .StripeElement {
+    width: 79%;
+    margin-left: 0;
+    margin-right: auto;
+    padding: 11px 15px 11px 0;
+  }
+}
