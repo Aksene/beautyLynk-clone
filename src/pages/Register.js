@@ -80,7 +80,6 @@ function Register() {
                     },
                   },
             })
-
             if (error) {
                 if (error = "Signups not allowed for this instance"){
                     console.log(error)
@@ -91,10 +90,12 @@ function Register() {
                     setMessage(error.message)
                     alert(error.message)
                 }
-            } else {
+            } else if(data) {
                 setMessage("Thank you for registering! A confirmation email has been sent to "+email)
                 alert("Thank you for registering! A confirmation email has been sent to "+email)
+                console.log(data)
                 console.log(data.user.id)
+                sendInfo(data)
                 // if(url){
                 //     navigate("../"+url, { replace: true });
                 //     localStorage.removeItem('prevURL');
@@ -102,59 +103,34 @@ function Register() {
                 //     navigate("../dashboard", { replace: true });
                     
                 // }
-    
             }
-
-            // const register = await auth.Register(email, password)
-
-            // if (register.error) {
-            //     if (register.error = "Signups not allowed for this instance"){
-            //         setMessage("Your email is not valid, please try again or create a account")
-            //         alert("Your email is not valid, please try again or create a account")
-            //     }else{
-            //         setMessage(register.error.message)
-            //         alert(register.error.message)
-            //     }
-            // } else {
-            //     setMessage("Thank you for registering! Welcome to BeautyLynk")
-            //     alert("Thank you for registering! Welcome to BeautyLynk")
-            //     if(url){
-            //         navigate("../"+url, { replace: true });
-            //         localStorage.removeItem('prevURL');
-            //     }else{
-            //         navigate("../dashboard", { replace: true });
-            //     }
-            // }
-
-
         } else {
             setPassCheck(false)
         }
-
-    //     const login = await auth.Login(email, password)
-       
-    //    if (login.error) {
-    //        if (login.error = "Signups not allowed for this instance"){
-    //             setMessage("Your email is not valid, please try again or create a account")
-    //             alert("Your email is not valid, please try again or create a account")
-    //        }else{
-    //             setMessage(login.error.message)
-    //             alert(login.error.message)
-    //        }
-    //    } else {
-    //        setMessage("You have been logged in")
-    //        alert("You have been logged in")
-    //        if(url){
-    //             navigate("../"+url, { replace: true });
-    //             localStorage.removeItem('prevURL');
-    //        }else{
-    //             navigate("../dashboard", { replace: true });
-                
-    //        }
-
-    //    }
        setEmail("")
     }
+
+    const sendInfo = async(rawData) => {
+        const {data, error} = await supabase.from("BeautyLynk_Users").insert({
+            uuid: rawData.user.id,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phoneNum: phoneNum,
+        })
+        if(error) {
+            console.log(error)
+            alert(error.message)
+        }
+        if(data) {
+            console.log(data)
+            navigate("../", { replace: true });
+        }
+
+    }
+
+
+
     return (
         <Layout>
             <div className="register-layout">

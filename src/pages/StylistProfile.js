@@ -162,7 +162,7 @@ function StylistProfile() {
             }
             const {data1, error1} = await supabase
                 .from('BeautyLynk_Pros_dup')
-                .update({ highlight3: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/highlights/${auth.user.email}/${localImageUrl}` })
+                .update({ highlight1: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/highlights/${auth.user.email}/${localImageUrl}` })
                 .eq("id", id)
                 .select()
             if(error1) {
@@ -170,8 +170,7 @@ function StylistProfile() {
                 alert(error1.message)
             }
             if(data1) {
-                console.log("Highlight3 has been updated",data1)
-                
+                console.log("Highlight1 has been updated",data1)
             }
         }
         
@@ -193,7 +192,7 @@ function StylistProfile() {
             }
             const {data1, error1} = await supabase
                 .from('BeautyLynk_Pros_dup')
-                .update({ highlight3: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/highlights/${auth.user.email}/${localImageUrl}` })
+                .update({ highlight2: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/highlights/${auth.user.email}/${localImageUrl}` })
                 .eq("id", id)
                 .select()
             if(error1) {
@@ -201,7 +200,7 @@ function StylistProfile() {
                 alert(error1.message)
             }
             if(data1) {
-                console.log("Highlight3 has been updated",data1)
+                console.log("Highlight2 has been updated",data1)
                 
             }
         }
