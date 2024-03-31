@@ -1,0 +1,132 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.692);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-inner {
+  position: relative;
+  padding: 32px;
+  width: 100%;
+  max-width: 640px;
+  background-color: white;
+  z-index: -1;
+}
+
+.popup-inner .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.prompt-container {
+  padding-top: 10px;
+  flex-direction: column;
+}
+
+.prompt-container h1 {
+  color: black;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.button-container a {
+  /* background-color: #562361 !important; */
+  color: white;
+  display: inline-block;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  padding: 1rem 1.5rem;
+  position: relative;
+  z-index: 2;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.button-container a::after {
+  width: 90%;
+  height: 90%;
+  background-color: transparent;
+  /* border: 1px solid #562361; */
+  content: "";
+  transition: all 0.2s;
+  z-index: -1;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 10px;
+}
+
+.cancel-btn {
+  background-color: #757272 !important;
+}
+.cancel-btn::after {
+  border: 1px solid #757272;
+}
+.delete-btn {
+  background-color: #b8336c !important;
+}
+.delete-btn::after {
+  border: 1px solid #b8336c;
+}
+
+.button-container a:hover::after {
+  width: 100%;
+  height: 100%;
+  top: 4px;
+  right: -6px;
+}
+
+/* .button-container button {
+  color: white;
+  width: 50%;
+  cursor: pointer;
+  padding: 5px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 20px;
+  backdrop-filter: blur(3px);
+} */
+
+/* .delete-btn {
+  height: 50px;
+  background-color: rgba(192, 27, 27, 0.719);
+  border-color: rgba(119, 0, 0, 0.171);
+  box-shadow: rgba(199, 4, 4, 0.199) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.delete-btn:hover {
+  background-color: rgb(255, 4, 4);
+}
+
+.cancel-btn {
+  height: 50px;
+  background-color: rgba(175, 177, 175, 0.85);
+  border-color: rgba(1, 153, 21, 0.171);
+  box-shadow: rgba(209, 211, 210, 0.199) 2px 8px 8px;
+  border: 5px rgba(255, 255, 255, 0.4) solid;
+}
+
+.cancel-btn:hover {
+  background-color: rgb(163, 165, 163);
+} */
+
+.popup_checkbox-checkmark {
+  visibility: hidden;
+}
+.popup_checkbox-checkmark-paid {
+  visibility: hidden;
+}

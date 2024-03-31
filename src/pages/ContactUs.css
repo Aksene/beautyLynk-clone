@@ -3,6 +3,15 @@
   width: 300px;
 }
 
+.contactMe_wall {
+  margin-top: 5.5rem;
+
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+}
+
 .contactMe-logo_container {
   display: flex;
   align-items: center;
@@ -21,7 +30,7 @@
   margin-right: auto;
   width: max-content;
   padding: 25px;
-  margin-top: 5.5rem;
+  margin-top: 1rem;
 }
 
 .contactMe-submit_container {
@@ -30,10 +39,10 @@
   justify-content: center;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-textarea {
+.container1 input[type="text"],
+.container1 input[type="email"],
+.container1 input[type="number"],
+.container1 textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -48,7 +57,7 @@ label[for="name"],
 label[for="email"],
 label[for="number"],
 label[for="message"] {
-  color: rgb(146, 122, 139);
+  color: rgb(97, 80, 92);
 }
 
 text[for="name"],
@@ -65,7 +74,7 @@ textarea {
 
 .container1 {
   border-radius: 1rem;
-  background-color: #b8336d2a !important;
+  background-color: #5c1936c9 !important;
   box-shadow: 0 0 2px #b8336d59, 0 0 10px #b8336d59, 0 0 50px #b8336d59,
     0 0 70px #b8336d59;
   padding: 20px;

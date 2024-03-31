@@ -1,4 +1,4 @@
-.booking-container {
+.applicant-container {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8,15 +8,15 @@
   padding: 1rem;
 }
 
-.booking-container h2,
-.booking-container h3,
-.booking-container h4 {
+.applicant-container h2,
+.applicant-container h3,
+.applicant-container h4 {
   text-align: center;
 }
 
-.booking-spec {
+.applicant-details {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   margin-left: auto;
   margin-right: auto;
@@ -25,32 +25,23 @@
   gap: 1rem;
 }
 
-.booking-spec h4 {
+.applicant-spec h4 {
   text-align: left !important;
 }
-.booking-detail {
+.applicant-detail {
 }
-.confirm-back-button {
-  margin-left: 5rem;
-  background-color: white;
-  color: white;
-  border-color: #2c535767;
-  cursor: pointer;
-  border-radius: 10px;
-}
-
 .confirm-back-button img {
   width: 50px;
   height: 25px;
 }
 
-.confirm-back-button:hover {
+.applicant-back-button:hover {
   background-color: #2c535767;
   border-color: #2c535767;
   transition: ease-in 0.2s;
 }
 
-.bookingConfirm-wrap {
+.applicant-card {
   width: 40%;
   padding: 3rem;
   background-color: rgba(245, 245, 245, 0.342);
@@ -59,22 +50,22 @@
   box-shadow: 0 0 2px #b8336d59, 0 0 10px #b8336d59, 0 0 50px #b8336d59,
     0 0 70px #b8336d59;
 }
-.booking-specs_info {
-  line-height: 0.5;
-}
-.booking-payment {
-  text-align: center;
-}
 
-.confirmation-btns {
+.applicant-btns {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
 }
+.applicant-decline_btn {
+  background-color: #757272 !important;
+}
+.applicant-decline_btn::after {
+  border: 1px solid #757272 !important;
+}
 
-.confirmation-btns a {
-  background-color: #562361 !important;
+.applicant-btns a {
+  background-color: #562361;
   color: white;
   display: inline-block;
   font-size: 1.25rem;
@@ -87,7 +78,7 @@
   cursor: pointer;
 }
 
-.confirmation-btns a::after {
+.applicant-btns a::after {
   width: 90%;
   height: 90%;
   background-color: transparent;
@@ -101,26 +92,9 @@
   border-radius: 10px;
 }
 
-.confirmation-btns a:hover::after {
+.applicant-btns a:hover::after {
   width: 100%;
   height: 100%;
   top: 4px;
   right: -6px;
-}
-
-@media (max-width: 800px) {
-  .bookingConfirm-wrap {
-    width: 60%;
-  }
-  .booking-spec {
-    grid-template-columns: auto;
-
-    gap: 1rem;
-  }
-  .booking-specs_info {
-    line-height: 1.5 !important;
-  }
-  .booking-spec h4 {
-    text-align: center !important;
-  }
 }

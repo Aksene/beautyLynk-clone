@@ -134,13 +134,12 @@ function Register() {
     return (
         <Layout>
             <div className="register-layout">
-            <br /><br />
 
                 <h3>{message && message}</h3>
                 <div className="register-form-container">
         
 
-                    <h1 className="register-header">SIGN-IN</h1>
+                    <h1 className="register-header">SIGN UP</h1>
 
                     <form className="register-form"  onSubmit={handleRegister}>
                         <div className="register-names">
@@ -178,7 +177,7 @@ function Register() {
                         <label htmlFor=""><h4>Confirm Password:</h4></label> 
                         <label htmlFor="" style={{color: "#db2a77", fontWeight: "bold"}}> {passCheck ? "" : <>{"Passwords do not match"}<br/><br/></> }</label>
                         <input type="password" value={passwordConfirm} placeholder="************" onChange={e => setPasswordConfirm(e.target.value)} />
-                        <span><h5>Already have an account? <a className="register-login_link" href="/register">Register here</a></h5></span>
+                        <span><h5>Already have an account? <a className="register-login_link" href="/login">Login</a></h5></span>
                         <br /><br />
                         <div className="register-button-container">
                             <button className="register-form-button" type="submit"><h5>SUBMIT</h5></button>

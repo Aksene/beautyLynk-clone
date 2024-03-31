@@ -10,7 +10,9 @@ function ContactUs() {
     return (
         <Layout>
             <div>
+                <img className="contactMe_wall" src={'/images/walls/purple.jpg'} alt="" srcset="" />
                 <text className="contactMe__Title"> Let's Talk!</text>
+                <br /><br />
                 <div class="contactMe_row">
                     <div class="column1">
                         <form className="container1" action="https://submit-form.com/XOxuMUP6">
@@ -46,7 +48,7 @@ function ContactUs() {
                            </div>
                            <div>
                                 <label for="email">E-mail: </label>   
-                                <text for="email">abdouksene@gmail.com</text>
+                                <text for="email">hello@beautylynk.com</text>
                            </div>
                             <br />
                             <div className="contactMe-logo_container">

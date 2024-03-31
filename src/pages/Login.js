@@ -98,13 +98,13 @@ function Login() {
                 <div className="login-form-container">
         
 
-                    <h1 className="login-header">SIGN-IN</h1>
+                    <h1 className="login-header">LOGIN</h1>
 
                     <form className="login-form"  onSubmit={handleLogin}>
                         <label><h4>Email:</h4></label> <input type="email" value={email} placeholder="Please enter your email here" onChange={e => setEmail(e.target.value)} />
                         <br />
                         <label htmlFor=""><h4>Password:</h4></label> <input type="password" value={password} placeholder="************" onChange={e => setPassword(e.target.value)} />
-                        <span><h5>Don't have an account? <a className="login-register_link" href="/register">Register here</a></h5></span>
+                        <span><h5>Don't have an account? <a className="login-register_link" href="/signup">Sign up</a></h5></span>
                         <br /><br />
                         <div className="login-button-container">
                             <button className="login-form-button" type="submit"><h5>SUBMIT</h5></button>

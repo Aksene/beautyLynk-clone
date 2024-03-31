@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { supabase } from '../database/Database'
 import { useAuth2 } from '../Auth/auth2'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom'
 import Layout from '../components/Layout'
 import './BookingConfirm.css'
-import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
 
 function BookingConfirm() {
     const auth = useAuth2()
+    const navigate = useNavigate();
     var date
     const [bookingInfo, setBookingInfo] = useState([])
     const [proInfo, setProInfo] = useState([])
@@ -143,7 +143,7 @@ function BookingConfirm() {
     const sendProText = async () => {
         
         var { textmessage, recipient } = proText
-        proInfo.map((info) => (recipient = info.number))
+        proInfo.map((info) => (recipient = info.phoneNum))
         
         bookingInfo.map((booking) => {
             textmessage = `This is BeautyLynk!  We are excited to confirm that you've accepted your next appointment for ${booking.serviceType}. Here are the details: ${booking.firstName} ${booking.lastName} Date: ${date.toDateString()} Time: ${booking.time} Location: ${booking.aptAddress1}${booking.aptAddress2 ? ` ${booking.aptAddress2},` : ","} ${booking.aptCity}, ${booking.aptState}. Reach out to us if you need anything on your dashboard https://beautylynk-clone.vercel.app/dashboard`
@@ -186,6 +186,9 @@ function BookingConfirm() {
     return (
         <Layout>
             <br />
+            <button className="confirm-back-button"  onClick={() => navigate(-1)}>
+                <img src="./icons/arrow-left--teal.svg" alt=""  />
+            </button>
             <div className="booking-container">
                 <h1>Booking Confirmation</h1>
                     {bookingInfo.map((booking, index) => {
@@ -422,7 +425,7 @@ function BookingConfirm() {
                                             <a onClick={() => (
                                                 <>
                                                     {setRejected(true)}
-                                                    {handleConfirmation(false)}
+                                                    {}
                                                 </>
                                             )}>No</a>
                                         </div>

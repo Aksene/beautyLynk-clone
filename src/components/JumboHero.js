@@ -20,6 +20,15 @@ function JumboHero() {
     })
     const [cities, setCities] = useState([])
     const [services, setServices] = useState([])
+    const [isLoaded, setIsLoaded] = useState(false)
+    const [currHero, setCurrHero] = useState("")
+    const heros = ["/images/hero/bg_1.gif", "/images/hero/bg_2.gif", "/images/hero/bg_3.gif", "/images/hero/bg_4.gif"]
+    
+    if(!isLoaded) {
+        setCurrHero(heros[(Math.floor(Math.random() * heros.length))]);
+        setIsLoaded(true)
+        console.log("hero has been loaded", currHero)
+    }
 
     useEffect(() => {
 
@@ -131,7 +140,7 @@ function JumboHero() {
     return (
         <div className="jumbo-wrap">
             <figure>
-                <img className="heroImage" src="/images/hero/bg_2.gif" alt="BeautyLynk hero image"/>
+                <img className="heroImage" src={currHero} alt="BeautyLynk hero image"/>
                 <figcaption>
                     <div className="row justify-content-end">
                         <h2>Beauty. On Your Time.</h2>

@@ -27,7 +27,7 @@
 
 .instagram-button {
   background-color: #fcfcfc;
-  color: #b8336c;
+  color: #b8336c !important;
   display: inline-block;
   font-size: 1.25rem;
   font-weight: 600;

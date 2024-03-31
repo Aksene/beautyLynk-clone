@@ -16,8 +16,9 @@ import Dashboard from './pages/Dashboard';
 import BookingConfirm from './pages/BookingConfirm'
 import BookingDetails from './pages/BookingDetails';
 import UploadImages from './pages/Upload';
-import StylistProfileEdit from './pages/StylistProfileEdit';
 import StylistProfile from './pages/StylistProfile';
+import ProfileEdit from './pages/ProfileEdit'
+import ApplicantDetails from './pages/ApplicantDetails';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
 
@@ -46,8 +47,12 @@ root.render(
         <Route path={"upload/:type"} element={<ProtectedRoute> <UploadImages/> </ProtectedRoute>}/>
         <Route path={"profile/"} element={<ProtectedRoute> <StylistProfile/> </ProtectedRoute>}/>
         <Route path={"profile/:type"} element={<ProtectedRoute> <StylistProfile/> </ProtectedRoute>}/>
+        <Route path={"profile-edit/"} element={<ProtectedRoute> <ProfileEdit/> </ProtectedRoute>}/>
+        <Route path={"profile-edit/:type"} element={<ProtectedRoute> <ProfileEdit/> </ProtectedRoute>}/>
+        <Route path={"pro-applicant/"} element={<ProtectedRoute> <ApplicantDetails/> </ProtectedRoute>}/>
+        <Route path={"pro-applicant/:type"} element={<ProtectedRoute> <ApplicantDetails/> </ProtectedRoute>}/>
         <Route path={"login"} element={<Login/>}/>
-        <Route path={"register"} element={<Register/>}/>
+        <Route path={"signup"} element={<Register/>}/>
         <Route path={"contact-us"} element={<ContactUs/>}/>
         <Route path={"about-us"} element={<AboutUs/>}/>
       </Routes>

@@ -6,6 +6,8 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import Layout from '../components/Layout'
 import { supabase } from '../database/Database'
 import { Carousel } from 'react-responsive-carousel'
+import emailjs from "@emailjs/browser";
+
 
 import "./StylistProfile.css"
 import axios from 'axios'
@@ -77,7 +79,8 @@ function StylistProfile() {
 
     useEffect(() => {
         getProInfo()
-        getPosts()
+        emailjs.init("ELhMlmYCSWK5Xb-Xg")
+
 
         console.log(auth.user)
         console.log("isAdmin: " + isAdmin)
@@ -87,26 +90,6 @@ function StylistProfile() {
         // }
        
     },[])
-
-    const getPosts = async() => {
-        let info = [];
-
-        const {data, error} = await supabase
-            .from('BeautyLynk_Blogs')
-            .select('id, title, image, link')
-            .order('id')
-        if(error){
-            console.log(error)
-        }
-        if(data){
-            // info.push(data)
-            console.log("Medium posts")
-            console.log(data)
-            setPosts(data)
-
-            // console.log(data.id)
-        }
-    }
 
     const getProInfo = async() => {
 
@@ -123,7 +106,8 @@ function StylistProfile() {
             console.log("Pro information", data)
             data.map((info) =>(
                 <>
-                    { specArr = data[0].speciality.split(", ")}
+                    {/* { specArr = data[0].speciality.split(", ")} */}
+                    { specArr = data[0].speciality.split(",")}
                     {setCheckVal(specArr)}
                     {data[0].specArray = specArr}
                     {console.log("Speciality Array Check: " + data.map((info) => (info.specArray)) )}
@@ -239,6 +223,14 @@ function StylistProfile() {
         setEditable(false)
         setEditHigh(false)
         if(high1 || high2 || high3){
+            // TODO:
+            emailjs.send("gmail","template_95wje5k",{
+                subject: "Profile Update Notification",
+                name: `${proInfo.map((info) => (info.firstName))}`,
+                message: `We've recently updated your profile highlights as requested. Please review the changes at your earliest convenience.`,
+                email: auth.user.email,
+            });
+
             window.location.reload();
         }
         
@@ -248,9 +240,9 @@ function StylistProfile() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         let localImageUrl = ""
-        let name = proInfo.map(info => (info.full_name))
+        // let name = proInfo.map(info => (info.full_name))
 
-        console.log(name)
+        // console.log(name)
 
 
         if(image) {
@@ -265,7 +257,7 @@ function StylistProfile() {
                 setFinish(true)
                 // data.map( res => localImageUrl = res.key)
                 localImageUrl = data.path
-            console.log("Image has been uploaded",data)
+                console.log("Image has been uploaded",data)
             }
         }
 
@@ -283,6 +275,13 @@ function StylistProfile() {
             
         }
         setShowInput(false)
+        // TODO:
+        emailjs.send("gmail","template_95wje5k",{
+            subject: "Profile Update Notification",
+            name: `${proInfo.map((info) => (info.firstName))}`,
+            message: `We've recently updated your profile image as requested. Please review the changes at your earliest convenience.`,
+            email: auth.user.email,
+        });
         window.location.reload();
     
 
@@ -295,7 +294,9 @@ function StylistProfile() {
 
     const submitSpec = async(e) => {
         proInfo[0].specArray = checkVal
-        proInfo[0].speciality = checkVal.join(', ')
+        // proInfo[0].speciality = checkVal.join(', ')
+        proInfo[0].speciality = checkVal.join(',')
+
 
         console.log("Default check :",proInfo.map((info) => (info.specArray.includes("Customer Service Agent Hair") ? true : false))[0])
 
@@ -316,6 +317,13 @@ function StylistProfile() {
             // setProInfo(data)
             setEditable(false)
             // console.log(data.id)
+            // TODO:
+            emailjs.send("gmail","template_95wje5k",{
+                subject: "Profile Update Notification",
+                name: `${proInfo.map((info) => (info.firstName))}`,
+                message: `We've recently updated your profile specifications as requested. Please review the changes at your earliest convenience.`,
+                email: auth.user.email,
+            });
         }
 
     }
@@ -419,7 +427,7 @@ function StylistProfile() {
                             {/* <h4 className="welcome-profile_text">{proInfo.map((info) => (info.speciality))}</h4> */}
                             <h4> Date Joined: {proInfo.map((info) => (info.created_at))}</h4>
                             <h4> Licensed: {proInfo.map((info) => (info.licenseNum ? "YES" : "NO"))}</h4>
-                            <h4> Years Licensed: {proInfo.map((info) => (info.yearsLicensed))}</h4>
+                            <h4> Years Licensed: {proInfo.map((info) => (info.yearsLicensed ? info.yearsLicensed : 0))}</h4>
                             <h4> Kids Services: {proInfo.map((info) => (info.kidServices ? "YES" : "NO"))}</h4>
                             <h4> Allergies: {proInfo.map((info) => (info.allergies ? "YES" : "NONE"))}</h4>
                             <h4> Smoker Friendly: {proInfo.map((info) => (info.smokingEnvironments ? "YES" : "NO"))}</h4>

@@ -49,7 +49,14 @@
   left: -19px;
   top: 6px;
 }
-.stripe-connect_button {
+
+.dashboard-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.stripe-connect_button,
+.profile-edit_button {
   display: flex;
   align-items: center;
   background: var(--accent-color);
@@ -68,12 +75,17 @@
   /* display: block; */
 }
 
-.stripe-connect_button form,
-.stripe-connect_button h4 {
-}
 .stripe-connect_button button {
-  /* background: url("/public/stripeConnect.jpeg") no-repeat center #fff; */
   background: url("/public/stripe.webp") no-repeat center #fff;
+}
+.profile-edit_button button {
+  background: url("/public/icons/edit-gear.png") no-repeat center #fff;
+  background-size: 60px !important;
+}
+
+.stripe-connect_button button,
+.profile-edit_button button {
+  /* background: url("/public/stripeConnect.jpeg") no-repeat center #fff; */
   background-size: 100px;
   cursor: pointer;
   width: 85px;
@@ -88,7 +100,8 @@
     0 0 70px #6772e4;
   transition: 0.5s ease-in;
 }
-.stripe-connect_button h4 {
+.stripe-connect_button h4,
+.profile-edit_button h4 {
   color: black;
 }
 /* .stripe-connect_button:active {
@@ -98,6 +111,15 @@
 .stripe-connect_button:disabled {
   opacity: 0.5;
   cursor: none;
+}
+
+.pagination button {
+  background-color: #b8336c;
+  border-color: #685568;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 5px;
+  color: #f3e6ec;
 }
 
 table.darkTable {
@@ -223,6 +245,7 @@ table.darkTable h2 {
 }
 
 .dashboard-table_status-green,
+.dashboard-table_status-pink,
 .dashboard-table_status-grey {
   display: flex;
   justify-content: center;
@@ -237,6 +260,11 @@ table.darkTable h2 {
 }
 
 .dashboard-table_status-green {
+  background-color: #33b83a !important;
+  border: 5px #33b83a solid !important;
+}
+
+.dashboard-table_status-pink {
   background-color: #b8336c !important;
   border: 5px #b8336c solid !important;
 }
@@ -262,6 +290,16 @@ table.darkTable h2 {
   cursor: pointer;
 }
 
+.table-payout_btn {
+  height: 25%;
+  width: 35%;
+  cursor: pointer;
+}
+.table-payout_btn:hover {
+  height: 30%;
+  width: 40%;
+  transition: ease-in 0.1s;
+}
 .table-delete_btn:hover {
   height: 30%;
   width: 30%;

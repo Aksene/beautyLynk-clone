@@ -1,15 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import { supabase } from '../database/Database'
 import { useAuth2 } from '../Auth/auth2'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useLocation, useNavigate } from 'react-router-dom'
 import Layout from '../components/Layout'
 import './BookingConfirm.css'
-import { useLocation } from 'react-router-dom'
 import axios from 'axios'
 
 
 function BookingDetails() {
     const auth = useAuth2()
+    const navigate = useNavigate();
     var date
     const [bookingInfo, setBookingInfo] = useState([])
     const [proInfo, setProInfo] = useState([])
@@ -186,6 +186,10 @@ function BookingDetails() {
     return (
         <Layout>
             <br />
+            {/* <button className="back-button"> BACK </button> */}
+            <button className="confirm-back-button"  onClick={() => navigate(-1)}>
+                <img src="./icons/arrow-left--teal.svg" alt=""  />
+            </button>
             <div className="booking-container">
                 <h1>Booking Details</h1>
                     {bookingInfo.map((booking, index) => {
@@ -391,9 +395,9 @@ function BookingDetails() {
                                         </div>
                                     </div>
                                     <br/>
-                                    <div className="booking-payment">
+                                    {/* <div className="booking-payment">
                                         <h1>Payout: ${booking.payout}</h1>
-                                    </div>
+                                    </div> */}
                                 </div>
                         )
                     })}
