@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 // import abdousWorld from '/images/abdousWorld.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { FaTwitter, FaInstagram } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
 
 
 const Layout = ({children}) => {
@@ -122,25 +122,29 @@ const Layout = ({children}) => {
                     <div className="footer-aboutUs">
                         <ul>
                             <h3 className="footer-cat_header">Company</h3>
-                            <li className="footer-cat_links">
-                                <Link to="https://form.typeform.com/to/WXlKI39T?typeform-source">
-                                        <span>Join the Team</span>
-                                </Link>
-                                
-                            </li>
                             {/* <li className="footer-cat_links">
-                                <a href="/team">
-                                    <span>Our Professionals</span>
-                                </a>
-                            </li> */}
-                            <li className="footer-cat_links">
                                 <Link to="/book-now" state={{homeInfo: ""}}>
                                     <span>Book Now</span>
                                 </Link>
-                            </li>
+                            </li> */}
                             <li className="footer-cat_links">
                                 <a href="/about-us/">
-                                        <span>About Us</span>
+                                    <span>About Us</span>
+                                </a>
+                            </li>
+                            <li className="footer-cat_links">
+                                <a href="/privacy-policy/">
+                                    <span>Privacy Policy</span>
+                                </a>
+                            </li>
+                            <li className="footer-cat_links">
+                                <a href="/term-of-use/">
+                                    <span>Term of Use</span>
+                                </a>
+                            </li>
+                            <li className="footer-cat_links">
+                                <a href="/term-of-sale/">
+                                    <span>Term of Sale</span>
                                 </a>
                             </li>
                         </ul>
@@ -149,13 +153,18 @@ const Layout = ({children}) => {
                         <ul>
                             <h3 className="footer-cat_header">Connect</h3>
                             <li className="footer-cat_links">
-                                <a href="//twitter.com">
-                                    <span>Twitter</span>
+                                <Link to="https://form.typeform.com/to/WXlKI39T?typeform-source">
+                                        <span>Join the Team</span>
+                                </Link>
+                            </li>
+                            <li className="footer-cat_links">
+                                <a href="//medium.com/beauty-re-fresh">
+                                    <span>Blog</span>
                                 </a>
                             </li>
                             <li className="footer-cat_links">
-                                <a href="//instagram.com/">
-                                    <span>Instagram</span>
+                                <a href="/advisor">
+                                    <span>Advisor</span>
                                 </a>
                             </li>
                             <li className="footer-cat_links">
@@ -204,19 +213,24 @@ const Layout = ({children}) => {
                     </div>
                     <div className="footer-icon-group">
                         <ul>
-                            <li>
+                            {/* <li>
                                 <Link to="/faq" target='_blank'>
                                     FAQ
                                 </Link>
-                            </li>
+                            </li> */}
                             <li>
-                                <Link to="//twitter.com/" target='_blank'>
+                                <Link to="//twitter.com/BeautyLynk" target='_blank'>
                                     <FaTwitter/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="//instagram.com/" target='_blank'>
+                                <Link to="//instagram.com/BeautyLynk" target='_blank'>
                                     <FaInstagram/>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="//facebook.com/BeautyLynk" target='_blank'>
+                                    <FaFacebook/>
                                 </Link>
                             </li>
                         </ul>

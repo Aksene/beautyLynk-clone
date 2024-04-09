@@ -105,6 +105,10 @@ figcaption p {
   border-bottom-right-radius: 10px;
 }
 
+.booking-field button:hover {
+  background-color: var(--brand-color);
+}
+
 @media (max-width: 700px) {
   .heroImage {
     width: 100%;

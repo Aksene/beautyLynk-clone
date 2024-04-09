@@ -85,6 +85,7 @@
   z-index: 2;
   border-radius: 10px;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .blogHero-desc a:after {

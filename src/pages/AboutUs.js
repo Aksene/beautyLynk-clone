@@ -57,33 +57,32 @@ function AboutUs() {
                     <div className="aboutUs-header_container">
                         <div className="header_content">
                             <h1>About Us</h1>
-                            <p>BeautyLynk's company and culture are a lot like our product. They’re crafted, not cobbled, for a delightful experience.</p>
+                            <p>BeautyLynk is an inclusive, on-demand beauty service platform that connects clients with professional beauty services tailored to their unique needs, anytime, anywhere.</p>
                         </div>
                         <div className="header_image">
-                            <img src="../images/Hubspotters.webp" alt="" srcset="" />
+                            <img src="../images/group.jpeg" alt="" srcset="" />
                         </div>
                     </div>
                 </div>
                 <div className="aboutUs-section">
                     <div className="aboutUs-mission">
                         <div className="mission_image">
-                            <img src="../images/grow-better.webp" alt="" srcset="" />
+                            <img src="../images/working.jpeg" alt="" srcset="" />
                         </div>
                         <div className="mission_content">
-                            <h2>Our Mission: Helping Millions of Organizations Grow Better</h2>
-                            <p>We believe not just in growing bigger, but in growing better. And growing better means aligning the success of your own business with the success of your customers. Win-win!</p>
+                            <h2>Our Mission:</h2>
+                            <p>Empowering Beauty, Connecting Hearts – BeautyLynk is dedicated to revolutionizing the beauty industry by bridging the gap between skilled beauty professionals and discerning clients. Our mission is to provide personalized, inclusive, and accessible beauty experiences that not only enhance external beauty but also nurture inner confidence and connection. Through innovation, excellence, and a profound respect for diversity, we aim to build a community where everyone feels seen, valued, and empowered to express their unique beauty. At BeautyLynk, we believe that true beauty transcends boundaries, and together, we are redefining beauty standards, one connection at a time.</p>
                         </div>
                     </div>
                 </div>
                 <div className="aboutUs-section">
                     <div className="aboutUs-story">
                         <div className="story_content">
-                            <h2>Our Story</h2>
-                            <p>In 2004, fellow MIT graduate students Brian Halligan and Dharmesh Shah noticed a major shift in the way people shop and purchase products. Buyers didn’t want to be interrupted by ads, they wanted helpful information. In 2006, they founded HubSpot to help companies use that shift to grow better with inbound marketing.
-                                <br/><br/>Along the way, HubSpot expanded beyond marketing into a crafted, not cobbled suite of products that create the frictionless customer experience that buyers expect today. Expertly led by CEO Yamini Rangan, HubSpot uses its customer platform built on an AI-powered Smart CRM to help millions of scaling organizations grow better.</p>
+                            <h2>Our Story:</h2>
+                            <p>At BeautyLynk, we recognize and celebrate the artistry and dedication of beauty professionals across the industry. As the most inclusive on-demand beauty company, we are committed to connecting clients with top-tier beauty services that cater to their unique needs and preferences. Our platform is designed to support and uplift the diverse talents within the beauty community, providing long-term services that ensure clients feel their best, anytime, anywhere. By fostering a nurturing environment for both our professionals and clients, BeautyLynk is at the forefront of personalized, accessible beauty experiences, redefining the way beauty services are delivered and experienced.</p>
                         </div>
                         <div className="story_image">
-                            <img src="../images/Rangan-Halligan.webp" alt="" srcset="" />
+                            <img src="../images/bg/group-003.jpg" alt="" srcset="" />
                         </div>
                     </div>
                 </div>

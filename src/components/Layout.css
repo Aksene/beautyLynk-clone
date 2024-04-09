@@ -301,8 +301,14 @@ footer {
 }
 
 .slaymaster-logo-bottom {
-  width: 100%;
+  width: 95%;
   margin-bottom: 3rem;
+  transition: all 0.2s;
+}
+
+.slaymaster-logo-bottom:hover {
+  width: 100%;
+  transition: all 0.2s;
 }
 
 .footer-links {
@@ -348,6 +354,17 @@ footer {
   margin-top: auto;
   margin-bottom: auto;
   color: #575757;
+}
+
+.footer-copyright a {
+  color: #575757;
+  text-decoration: none;
+}
+
+.footer-copyright a:hover {
+  color: var(--brand-color);
+  text-decoration: line;
+  text-decoration: underline;
 }
 
 .footer-signature {

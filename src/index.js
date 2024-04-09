@@ -21,6 +21,9 @@ import ProfileEdit from './pages/ProfileEdit'
 import ApplicantDetails from './pages/ApplicantDetails';
 import ContactUs from './pages/ContactUs';
 import AboutUs from './pages/AboutUs';
+import TermOfUse from './pages/TermOfUse';
+import TermOfSale from './pages/TermOfSale';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 import ProtectedRoute from './components/ProtectedRoute';
 import Playground from './pages/Playground'
@@ -55,6 +58,9 @@ root.render(
         <Route path={"signup"} element={<Register/>}/>
         <Route path={"contact-us"} element={<ContactUs/>}/>
         <Route path={"about-us"} element={<AboutUs/>}/>
+        <Route path={"privacy-policy"} element={<PrivacyPolicy/>}/>
+        <Route path={"term-of-use"} element={<TermOfUse/>}/>
+        <Route path={"term-of-sale"} element={<TermOfSale/>}/>
       </Routes>
     </BrowserRouter>
   </AuthProvider2>

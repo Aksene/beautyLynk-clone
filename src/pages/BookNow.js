@@ -1666,6 +1666,7 @@ function BookNow() {
                     
                 </div>
             </div>
+            <br /><br />
         </Layout>
     )
 }
