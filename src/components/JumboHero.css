@@ -125,7 +125,7 @@ figcaption p {
     min-width: 200px;
     left: 15px;
     letter-spacing: 0.05rem;
-    line-height: 1;
+    line-height: 1.2;
     padding: 0rem;
     position: absolute;
     text-shadow: 0 0.02rem 0 rgb(17 17 17 / 50%);
@@ -137,11 +137,12 @@ figcaption p {
     /* width: 50rem; */
   }
   .booking-field input {
-    width: 93.5%;
+    width: 96%;
   }
   .booking-select_wrap {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
     padding: 1rem;
     margin-left: 0rem;
     margin-right: 0rem;
@@ -149,9 +150,9 @@ figcaption p {
   }
   figcaption {
     display: flex;
-    font-size: 1rem;
-    top: 4rem;
-    padding-left: 0rem;
+    font-size: 15px;
+    top: 4.5rem;
+    padding-left: 1.5rem;
     width: 90%;
     justify-content: flex-end !important;
   }
