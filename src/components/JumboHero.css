@@ -90,7 +90,7 @@ figcaption p {
 
 .booking-field input {
   width: 92.5%;
-  height: 100%;
+  height: 53%;
 }
 
 .booking-field button {
@@ -137,7 +137,7 @@ figcaption p {
     /* width: 50rem; */
   }
   .booking-field input {
-    width: 94.5%;
+    width: 93.5%;
   }
   .booking-select_wrap {
     display: grid;
