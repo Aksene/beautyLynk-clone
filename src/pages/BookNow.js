@@ -315,6 +315,8 @@ function BookNow() {
             }else{
                 alert('Please select a date that is not in the past');
                 newFormData[fieldName] = ""
+                newFormData["time"] =  ""
+                newFormData["timezone"] =  ""
             }
         } else if (fieldName === "time"){
             // Time limits
@@ -343,9 +345,10 @@ function BookNow() {
             if (valid) {
                 newFormData[fieldName] = fieldValue
             }else{
-                alert('Please select a time between 9:00 AM and 8:00 PM');
+                console.log('Please select a time between 9:00 AM and 8:00 PM');
                 newFormData[fieldName] = ""
             }
+            
 
         } else {
             newFormData[fieldName] = fieldValue
@@ -578,11 +581,11 @@ function BookNow() {
                                 />
                             </div>
                             <div className={bookingInfo.date === "" ? "book-now-field_hidden" : "book-now-field"}>
-                                <label htmlFor="">What time do you want your appointment? (Please specify your timezone)</label>
+                                <label htmlFor="">What time do you want your appointment? (Select a time between 9AM and 8PM)</label>
                                 <div className="book-now_time">
                                     <input 
                                         onChange={bookingInfo.time === "" ? bookingInfo.serviceType = "" : "" } 
-                                        disabled={bookingInfo.date === "" ? true : false} id="time" type="time" name="time" required value={bookingInfo.time} onChange={e => handleInputChange(e)}
+                                        disabled={bookingInfo.date === "" ? true : false} id="time" type="time" name="time" min="9:00" max="20:00" required value={bookingInfo.time}  onChange={e => handleInputChange(e)}
                                     />
                                     <select name="timezone" id="timezone" name="timezone" disabled={bookingInfo.date === "" ? true : false} required value={bookingInfo.timezone} onChange={e => handleInputChange(e)}>
                                         <option value="" defaultValue>Select a time zone</option>

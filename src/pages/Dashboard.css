@@ -317,23 +317,53 @@ table.darkTable h2 {
 
 @media (max-width: 800px) {
   .tab {
-    width: 90%;
+    width: 85%;
   }
   .tab-content {
     padding: 5px;
   }
   table.darkTable tbody td {
-    font-size: 12px;
+    font-size: 11px;
     color: #e6e6e6;
     font-weight: bolder;
-    padding: 10px;
+    padding: 5px;
   }
   table.darkTable thead th {
     font-size: 12px;
   }
+  .tab-link h4 {
+    padding: 5px;
+  }
+  .tab-link {
+    padding: 10px;
+  }
   .dashboard-table_serviceType {
     padding-left: 1rem !important;
   }
+  .dashboard-table_status-grey {
+    background-color: #757272 !important;
+    border: 1px #757272 solid !important;
+  }
+  .dashboard-table_status-green,
+  .dashboard-table_status-pink,
+  .dashboard-table_status-grey {
+    padding: 5px 5px;
+    height: 10px;
+    border-radius: 20px;
+    font-size: 10px;
+  }
+  .dashboard-table_actions div {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .table-delete_btn,
+  .table-payout_btn {
+    height: 50%;
+    width: 50%;
+    cursor: pointer;
+  }
+
   .dashboard-videos h1 {
     text-align: center;
     padding: 1rem;
@@ -372,7 +402,7 @@ table.darkTable h2 {
   .box {
     width: 70%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 20px;
     background: #574157e5;
     /* background: #562361; */
     overflow-wrap: normal;

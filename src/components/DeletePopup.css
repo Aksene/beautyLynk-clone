@@ -130,3 +130,14 @@
 .popup_checkbox-checkmark-paid {
   visibility: hidden;
 }
+
+@media (max-width: 800px) {
+  .popup-inner {
+    padding: 32px;
+    width: 75%;
+  }
+  .button-container {
+    display: flex;
+    flex-direction: row !important;
+  }
+}

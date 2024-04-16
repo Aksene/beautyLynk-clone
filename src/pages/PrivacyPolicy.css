@@ -27,3 +27,17 @@
   background-color: #e1cbd81a;
   border-radius: 5rem;
 }
+
+@media (max-width: 800px) {
+  .privacy-page-container {
+    padding: 2rem 1rem 2rem 1rem;
+    margin: 0rem 1rem 0rem 1rem;
+    border-radius: 5rem;
+  }
+  .privacy-wrap p {
+    font-size: 1rem;
+  }
+  .privacy-wrap h3 {
+    font-size: 1.3rem;
+  }
+}

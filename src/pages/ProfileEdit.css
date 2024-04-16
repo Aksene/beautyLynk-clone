@@ -99,3 +99,25 @@
   top: 4px;
   right: -6px;
 }
+
+@media (max-width: 800px) {
+  #transparent img {
+    top: 30%;
+    width: 40%;
+  }
+  .info-names,
+  .info-contact {
+    display: grid;
+    gap: 0rem;
+    grid-template-columns: auto;
+  }
+  .edit-names,
+  .edit-contact {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0rem;
+  }
+  .edit-form {
+    padding: 0rem 2rem 2rem 0rem;
+  }
+}

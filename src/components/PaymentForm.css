@@ -167,6 +167,9 @@ input {
     padding: 10px;
     appearance: none;
   }
+  .FormGroup-confirmBtn-container {
+    margin-left: 0rem;
+  }
   .address-fields label,
   .name-fields label,
   .FormRow label {
@@ -177,9 +180,16 @@ input {
     appearance: none;
   }
   .StripeElement {
-    width: 79%;
+    width: 90%;
     margin-left: 0;
     margin-right: auto;
     padding: 11px 15px 11px 0;
+  }
+  .cardAddress-ans div {
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .cardAddress-ans strong {
+    margin: 0.4rem;
   }
 }

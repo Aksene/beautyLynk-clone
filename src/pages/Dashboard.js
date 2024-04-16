@@ -620,7 +620,7 @@ function Dashboard() {
                                                                     <thead>
                                                                         <tr>
                                                                             <th><h4>Service</h4></th>
-                                                                            <th><h4>Customer Detail</h4></th>
+                                                                            {width > 1000 ? <th><h4>Customer Detail</h4></th> : ""}
                                                                             {width > 1000 ? <th><h4>Location</h4></th> : ""}
                                                                             <th><h4>Date/Time</h4></th>
                                                                             <th><h4>Service Status</h4></th>
@@ -638,7 +638,7 @@ function Dashboard() {
                                                                                             {booking.serviceType} {' service in the '} {booking.service} {"style"}
                                                                                         </a>
                                                                                     </td>
-                                                                                    <td>{booking.firstName} {booking.lastName}</td>
+                                                                                    {width > 1000 ? <td>{booking.firstName} {booking.lastName}</td> : "" }
                                                                                     {width > 1000 ? <td>{booking.location}</td> : ""}
                                                                                     <td>{dateFormat(booking.date)} at {timeFormat(booking.time)}</td>
                                                                                     <td>
@@ -866,7 +866,7 @@ function Dashboard() {
                                                                         <th><h4>Last Name</h4></th>
                                                                         <th><h4>Email</h4></th>
                                                                         {width > 1000 ? <th><h4>Location</h4></th> : ""}
-                                                                        <th><h4>StripeConnect</h4></th>
+                                                                        {width > 1000 ? <th><h4>StripeConnect</h4></th> : ""}
                                                                         {/* <th><h4>Actions</h4></th> */}
                                                                     </tr>
                                                                 </thead>
@@ -882,9 +882,11 @@ function Dashboard() {
                                                                                 {width > 1000 ? <td>
                                                                                     <p>{pro.location}</p>
                                                                                 </td> : ""}
-                                                                                <td>
-                                                                                    {pro.stripeConnect ? pro.stripeConnect : "Pending"}
-                                                                                </td>
+                                                                                {width > 1000 ?
+                                                                                    <td>
+                                                                                        {pro.stripeConnect ? pro.stripeConnect : "Pending"}
+                                                                                    </td>
+                                                                                :""}
                                                                             </tr>    
                                                                         : ""
                                                                     ))}
@@ -988,8 +990,8 @@ function Dashboard() {
                                                                             <th><h4>Name</h4></th>
                                                                             <th><h4>Email</h4></th>
                                                                             {width > 1000 ? <th><h4>Location</h4></th> : ""}
-                                                                            <th><h4>Licensed</h4></th>
-                                                                            <th><h4>Submission Date</h4></th>
+                                                                            {width > 1000 ? <th><h4>Licensed</h4></th> : ""}
+                                                                            {width > 1000 ? <th><h4>Submission Date</h4></th> : ""}
                                                                             <th><h4>Available By</h4></th>
                                                                             <th><h4>Actions</h4></th>
                                                                         </tr>
@@ -1005,10 +1007,12 @@ function Dashboard() {
                                                                                     {width > 1000 ? <td>
                                                                                         <p>{applicant.location}</p>
                                                                                     </td> : ""}
-                                                                                    <td>
-                                                                                        {applicant.isLicensed ? "Yes" : "No"}
-                                                                                    </td>
-                                                                                    <td>{dateFormat(applicant.created_at)}</td>
+                                                                                    {width > 1000 ?
+                                                                                        <td>
+                                                                                            {applicant.isLicensed ? "Yes" : "No"}
+                                                                                        </td>
+                                                                                    :""}
+                                                                                    {width > 1000 ? <td>{dateFormat(applicant.created_at)}</td> : ""}
                                                                                     <td>{dateFormat(applicant.datesAvailable)}</td>
                                                                                     <td className="dashboard-table_actions">
                                                                                         {
@@ -1150,7 +1154,7 @@ function Dashboard() {
                                                                         <thead>
                                                                             <tr>
                                                                                 <th><h4>Service</h4></th>
-                                                                                <th><h4>Location</h4></th>
+                                                                                {width > 1000 ? <th><h4>Location</h4></th> :"" }
                                                                                 <th><h4>Date/Time</h4></th>
                                                                                 {width > 1000 ? <th><h4>Created</h4></th> : ""}
                                                                                 <th><h4>Appointment Status</h4></th>

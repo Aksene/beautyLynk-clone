@@ -4,6 +4,7 @@ import "./JumboHero.css"
 import { supabase } from '../database/Database'
 
 
+
 function JumboHero() {
     // const [bookingList, setBookingList] = useState([{
     //     location: "",
@@ -23,6 +24,9 @@ function JumboHero() {
     const [isLoaded, setIsLoaded] = useState(false)
     const [currHero, setCurrHero] = useState("")
     const heros = ["/images/hero/bg_1.gif", "/images/hero/bg_2.gif", "/images/hero/bg_3.gif", "/images/hero/bg_4.gif"]
+    var raw = new Date()
+    var newDate = raw.toDateString()
+    console.log("Todays date: ", newDate)
     
     if(!isLoaded) {
         setCurrHero(heros[(Math.floor(Math.random() * heros.length))]);
@@ -171,10 +175,10 @@ function JumboHero() {
                             </select>
                         </div>
                         <div className="booking-field">
-                            <input className="booking-field_input" type="date" name="date" required value={bookingInfo.date} onChange={e => handleInputChange(e)}/>
+                            <input placeholder="Select a date" className="booking-field_input" type="date" name="date" required value={bookingInfo.date ? bookingInfo.date : newDate.toString} onChange={e => handleInputChange(e)}/>
                         </div>
                         <div className="booking-field">
-                            <input className="booking-field_input"  type="time" name="time" required value={bookingInfo.time} onChange={e => handleInputChange(e)}/>
+                            <input className="booking-field_input"  type="time" name="time" required value={bookingInfo.time ? bookingInfo.time : newDate.toString} onChange={e => handleInputChange(e)}/>
                         </div>
                         <div className="booking-field">
                                 <select className="booking-field_select"  name="timezone" id="timezone" name="timezone" required value={bookingInfo.timezone} onChange={e => handleInputChange(e)}>

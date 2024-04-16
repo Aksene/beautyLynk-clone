@@ -219,17 +219,17 @@ const Layout = ({children}) => {
                                 </Link>
                             </li> */}
                             <li>
-                                <Link to="//twitter.com/BeautyLynk" target='_blank'>
+                                <Link className="footer-icon-group_social" to="//twitter.com/BeautyLynk" target='_blank'>
                                     <FaTwitter/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="//instagram.com/BeautyLynk" target='_blank'>
+                                <Link className="footer-icon-group_social" to="//instagram.com/BeautyLynk" target='_blank'>
                                     <FaInstagram/>
                                 </Link>
                             </li>
                             <li>
-                                <Link to="//facebook.com/BeautyLynk" target='_blank'>
+                                <Link className="footer-icon-group_social" to="//facebook.com/BeautyLynk" target='_blank'>
                                     <FaFacebook/>
                                 </Link>
                             </li>
