@@ -405,3 +405,51 @@
 .carousel-slide {
   height: 100%;
 }
+
+@media (max-width: 800px) {
+  .stylist_profile-nav_left {
+    gap: 3rem;
+    left: 15px;
+  }
+  .profile-body {
+    grid-template-columns: auto;
+  }
+  .about-section iframe {
+    width: 300px;
+    height: 200px;
+  }
+  .speciality-section {
+    padding: 1rem;
+    padding-bottom: 3rem;
+    margin-left: -2rem;
+  }
+  .tile__grid-container {
+    grid-template-columns: auto auto;
+    gap: 1rem;
+  }
+  .speciality-col {
+    padding: 5px;
+    display: block;
+    width: 90%;
+  }
+  .highlight-header-wrap {
+    grid-template-columns: auto;
+  }
+  .highlight-section-header {
+    margin-left: 0rem;
+  }
+  .profile_carousel-wrap {
+    text-align: center;
+    flex: 0 0 70%;
+    max-width: 60%;
+    height: 510px;
+  }
+  .profile_carousel-wrap {
+    max-width: 100%;
+    height: 500px;
+  }
+  .highlight-edit_wrap {
+    display: grid;
+    grid-template-columns: auto;
+  }
+}

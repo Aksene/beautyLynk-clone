@@ -154,7 +154,7 @@ function UploadImages() {
                             <label className="choose-image-label" htmlFor="image">Choose a image: </label>
                             <input 
                                 type="file" 
-                                accept={"img/*"}
+                                accept={"image/*;capture=camera"}
                                 onChange={e => setImage(e.target.files[0])}
                             />
                         </div>
