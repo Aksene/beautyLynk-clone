@@ -137,7 +137,11 @@ figcaption p {
     /* width: 50rem; */
   }
   .booking-field input {
-    width: 96%;
+    width: 95%;
+  }
+  .booking-field select {
+    /* width: 96%; */
+    height: 100%;
   }
   .booking-select_wrap {
     display: grid;

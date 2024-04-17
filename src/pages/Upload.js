@@ -53,33 +53,9 @@ function UploadImages() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         let localImageUrl = ""
-        let name = proInfo.map(info => (info.full_name))
+        let name = proInfo.map(info => (info.firstName))
 
         console.log(name)
-
-        // const url = `${supabase.supabaseUrl}/storage/v1/object/assignments/${auth.user.email}/${Date.now()}_${image.name}`;
-        // const headers = supabase._getAuthHeaders();
-
-        // const req = new XMLHttpRequest();
-        // req.upload.onprogress = updateProgress;
-        // req.upload.onload = transferComplete;
-        // // You might want to also listen to onabort, onerror, ontimeout
-        // req.open("POST", url);
-        // for (const [key, value] of Object.entries(headers)) {
-        // req.setRequestHeader(key, value);
-        // }
-        // req.send(image);
-
-        // function updateProgress(e) {
-        //     const pct = (e.loaded / e.total) * 100;
-        //     console.log(`Upload progress = ${e.loaded} / ${e.total} = ${pct}`);
-        // }
-          
-        // function transferComplete(e) {
-        //     console.log("The transfer is complete.");
-        //     alert("Image has been uploaded!")
-
-        // }
 
 
         if(image) {
@@ -96,38 +72,20 @@ function UploadImages() {
                 localImageUrl = data.path
             console.log("Image has been uploaded",data)
             }
-        }
 
-        const {data, error} = await supabase
-            .from('BeautyLynk_Bookings')
-            .update({ customerPhoto: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/submissions/${auth.user.email}/${localImageUrl}` })
-            .eq("id", id)
-            .select()
-        if(error) {
-            console.log(error)
-            alert(error.message)
+            const {data1, error1} = await supabase
+                .from('BeautyLynk_Bookings')
+                .update({ customerPhoto: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/submissions/${auth.user.email}/${localImageUrl}` })
+                .eq("id", id)
+                .select()
+            if(error1) {
+                console.log(error1)
+                alert(error1.message)
+            }
+            if(data1) {
+                console.log("Booking has been updated",data1)
+            }
         }
-        if(data) {
-            console.log("Booking has been updated",data)
-        }
-
-        // With upsert, if upload exist it updates it and if not it will insert a new row
-        // const {data, error} = await supabase.from("BeautyLynk_Bookings").insert({
-        //     uploader_id: auth.user.id,
-        //     email: auth.user.email,
-        //     uploader_name: name.toString(),
-        //     url: `https://vfexusiotdfnjqfjkjfv.supabase.co/storage/v1/object/public/submissions/${auth.user.email}/${localImageUrl}`,
-        //     embed_url: 'none',
-        //     name: image.name
-        // })
-
-        // if(error){
-        //     console.log(error)
-        // }
-        // if(data){
-        //     setMessage("Image has been uploaded!")
-        //     alert("Image has been uploaded!")
-        // }
 
     }
     

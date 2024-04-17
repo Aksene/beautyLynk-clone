@@ -111,12 +111,12 @@ const Layout = ({children}) => {
                 
             </main>
 
-            <footer>
-                <div className="footer-links">
+            <footer className={showMenu ? 'no-scroll' : ''}>
+                <div  className="footer-links">
                     <div className="slaymaster-logo-bottom-container">
-                            <a href="" to="/">
+                            <Link href="" to="/">
                                 <img className="slaymaster-logo-bottom" src={"/images/logo--white.svg"} alt="SlaymasterLogoBottom" />
-                            </a>
+                            </Link>
                             {/* BeautyLynk */}
                     </div>
                     <div className="footer-aboutUs">

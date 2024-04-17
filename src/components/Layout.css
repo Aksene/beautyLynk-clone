@@ -158,6 +158,13 @@
     overflow: hidden;
   }
 
+  @keyframes show {
+    100% {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
   .nav-menu {
     display: flex;
     flex-direction: column;
@@ -167,7 +174,7 @@
     position: fixed;
     top: 60px;
     opacity: 1;
-    transition: all 0s ease;
+    transition: all 0.2s ease;
     display: none;
     z-index: 2;
   }
@@ -177,13 +184,14 @@
     height: 100%;
     right: 0;
     opacity: 1;
-    transition: all 0.1s ease;
+    transition: all 0.2s ease;
     z-index: 2;
     visibility: visible;
     display: block;
     font-weight: bolder;
     font-size: larger;
     z-index: 1;
+    transition: cubic-bezier(0.755, 0.05, 0.855, 0.06) 0.3;
   }
 
   .menu-icon.active {
@@ -229,6 +237,9 @@
   }
 
   .nav-item {
+    display: flex;
+    align-content: center;
+    justify-content: center;
     width: 90%;
     margin: auto;
     /* height: 20px; */

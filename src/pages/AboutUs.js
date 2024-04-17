@@ -13,12 +13,18 @@ function AboutUs() {
     const [currentArticlesPage, setCurrentArticlesPage] = useState(1);
     const [rowsPerPge, SetPostsPerPage] = useState(4);
 
+    function topFunction() {
+        console.log("scrolling")
+        window.scrollTo(0,2700)
+      }
+
     // Article PAGINATION
     const indexOfLastArticle = currentArticlesPage * rowsPerPge;
     const indexOfFirstArticle = indexOfLastArticle - rowsPerPge;
     const currentArticles = allArticles.slice(indexOfFirstArticle, indexOfLastArticle);
 
     const handleArticlePagination = (pageNumber, type) => {
+        topFunction()
         // console.log(allBookingInfo.find((booking) => booking.isCompleted == true))
         // lengthCount = 0
         console.log("Current articles:", currentArticles)
@@ -30,6 +36,8 @@ function AboutUs() {
 
 
     useEffect(() => {
+        document.documentElement.scrollTop = 0; // For modern browsers
+        document.body.scrollTop = 0;
         getAllArticles()
     }, [])
 
@@ -88,7 +96,7 @@ function AboutUs() {
                 </div>
                 <div className="articles-wrap">
                     <h1>Read More About BeautyLynk</h1>
-                    <div className="articles-container">
+                    <div on className="articles-container">
                         {
                             currentArticles.map((article) => (
                                     <div className="article-card">

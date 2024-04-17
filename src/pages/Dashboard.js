@@ -141,6 +141,9 @@ function Dashboard() {
             setUser(auth.user)
         }
         emailjs.init("ELhMlmYCSWK5Xb-Xg")
+        document.documentElement.scrollTop = 0; // For modern browsers
+        document.body.scrollTop = 0;
+        console.log("scrolling")
 
         const fetchFunc = async () => {
             setLoading(true);
