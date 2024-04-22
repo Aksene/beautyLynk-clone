@@ -155,7 +155,7 @@ figcaption p {
   .booking-input-field input[type="date"]:before,
   .booking-input-field input[type="time"]:before {
     content: attr(placeholder) !important;
-    color: #aaa;
+    color: black;
     /* margin-right: 0.5em; */
   }
   .booking-input-field input[type="date"]:focus:before,
