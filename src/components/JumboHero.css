@@ -140,6 +140,7 @@ figcaption p {
     width: 96%;
     padding: 5px !important;
     height: 100%;
+    font-size: 13px !important;
   }
   .booking-field input[type="date"]:before,
   .booking-field input[type="time"]:before {
