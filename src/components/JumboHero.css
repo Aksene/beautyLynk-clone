@@ -138,7 +138,7 @@ figcaption p {
   }
   .booking-field input {
     width: 95%;
-    padding: 0;
+    padding: 0 !important;
     margin: 0 1px;
   }
   .booking-field select {
