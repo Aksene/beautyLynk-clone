@@ -181,7 +181,7 @@ function JumboHero() {
                             <input placeholder={ bookingInfo.date ? "" : "MM/DD/YYYY"} type="date"  className="booking-field_input" name="date" required value={bookingInfo.date} onChange={e => handleInputChange(e)}/>
                         </div>
                         <div className="booking-input-field">
-                            <input placeholder={ bookingInfo.time ? "" : "Select time"} className="booking-field_input"  type="time" name="time" required value={bookingInfo.time} onChange={e => handleInputChange(e)}/>
+                            <input placeholder={ bookingInfo.time ? "" : "Select"} className="booking-field_input"  type="time" name="time" required value={bookingInfo.time} onChange={e => handleInputChange(e)}/>
                         </div>
                         <div className="booking-field">
                                 <select className="booking-field_select"  name="timezone" id="timezone" name="timezone" required value={bookingInfo.timezone} onChange={e => handleInputChange(e)}>
