@@ -67,7 +67,8 @@ figcaption p {
   margin-right: 5rem;
 }
 
-.booking-field .booking-field_input,
+.booking-field,
+.booking-input-field .booking-field_input,
 .booking-field_select,
 .booking-field_button {
   background-color: #fcfcfc;
@@ -75,7 +76,7 @@ figcaption p {
   color: inherit;
   line-height: 22px;
   font-size: 15px;
-  padding: 10px;
+  /* padding: 10px; */
   transition: all 0.2s;
 }
 
@@ -88,7 +89,7 @@ figcaption p {
   height: 100%;
 }
 
-.booking-field input {
+.booking-input-field input {
   width: 92.5%;
   height: 53%;
 }
@@ -136,23 +137,28 @@ figcaption p {
     width: 70%;
     /* width: 50rem; */
   }
-  .booking-field input {
+  .booking-input-field {
+    display: table;
+    border: 2px solid lightgrey;
+    line-height: 22px;
+  }
+  .booking-input-field input {
     width: 96%;
-    height: 91%;
+    height: 100%;
     padding: 5px !important;
     font-size: 13px !important;
-    margin-bottom: 5px !important;
+    margin-bottom: 2px !important;
   }
-  .booking-field input[type="date"]:before,
-  .booking-field input[type="time"]:before {
+  .booking-input-field input[type="date"]:before,
+  .booking-input-field input[type="time"]:before {
     content: attr(placeholder) !important;
     color: #aaa;
     /* margin-right: 0.5em; */
   }
-  .booking-field input[type="date"]:focus:before,
-  .booking-field input[type="date"]:valid:before,
-  .booking-field input[type="time"]:focus:before,
-  .booking-field input[type="time"]:valid:before {
+  .booking-input-field input[type="date"]:focus:before,
+  .booking-input-field input[type="date"]:valid:before,
+  .booking-input-field input[type="time"]:focus:before,
+  .booking-input-field input[type="time"]:valid:before {
     content: "";
   }
   .booking-field select {
@@ -167,7 +173,7 @@ figcaption p {
     margin-left: 0rem;
     margin-right: 0rem;
     margin: auto;
-    gap: 1px;
+    /* gap: 1px; */
   }
   figcaption {
     display: flex;
