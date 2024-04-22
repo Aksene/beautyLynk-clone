@@ -149,7 +149,7 @@ figcaption p {
     width: 95%;
     height: 90%;
     /* padding: 5px !important; */
-    font-size: 12px !important;
+    /* font-size: 15px !important; */
     /* margin-bottom: 2px !important; */
   }
   .booking-input-field input[type="date"]:before,
