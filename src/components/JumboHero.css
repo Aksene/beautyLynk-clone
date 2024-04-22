@@ -139,14 +139,18 @@ figcaption p {
   .booking-field input {
     width: 96%;
     padding: 5px !important;
+    height: 100%;
   }
-  input[type="date"]:before {
+  .booking-field input[type="date"]:before,
+  .booking-field input[type="time"]:before {
     content: attr(placeholder) !important;
     color: #aaa;
     /* margin-right: 0.5em; */
   }
-  input[type="date"]:focus:before,
-  input[type="date"]:valid:before {
+  .booking-field input[type="date"]:focus:before,
+  .booking-field input[type="date"]:valid:before,
+  .booking-field input[type="time"]:focus:before,
+  .booking-field input[type="time"]:valid:before {
     content: "";
   }
   .booking-field select {
