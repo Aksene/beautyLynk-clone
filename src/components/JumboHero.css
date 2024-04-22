@@ -140,13 +140,13 @@ figcaption p {
     width: 95%;
   }
   input[type="date"]:before {
-    color: lightgray;
-    content: attr(placeholder);
+    content: attr(placeholder) !important;
+    color: #aaa;
+    margin-right: 0.5em;
   }
-
-  input[type="date"].full:before {
-    color: black;
-    content: "" !important;
+  input[type="date"]:focus:before,
+  input[type="date"]:valid:before {
+    content: "";
   }
   .booking-field select {
     /* width: 96%; */
