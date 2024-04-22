@@ -162,11 +162,12 @@ figcaption p {
   .booking-select_wrap {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     padding: 1rem;
     margin-left: 0rem;
     margin-right: 0rem;
     margin: auto;
+    gap: 1px;
   }
   figcaption {
     display: flex;
