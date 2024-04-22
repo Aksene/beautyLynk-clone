@@ -17,7 +17,8 @@ function JumboHero() {
     const [bookingInfo, setBookingInfo] = useState({
         location: "",
         serviceType: "",
-        date: `${raw.getFullYear()}-${raw.getDate()}-${raw.getMonth()+1}`,
+        // date: `${raw.getFullYear()}-${raw.getDate()}-${raw.getMonth()+1}`,
+        date: "",
         time: raw.getTime(),
         timezone:"",
     })
@@ -176,7 +177,7 @@ function JumboHero() {
                             </select>
                         </div>
                         <div className="booking-field">
-                            <input placeholder="Select a date" className="booking-field_input" type="date" name="date" required value={bookingInfo.date ? bookingInfo.date : newDate} onChange={e => handleInputChange(e)}/>
+                            <input  type="date" onfocus="(this.type='date')" onblur="(this.type='text')" className="booking-field_input" name="date" required value={bookingInfo.date} onChange={e => handleInputChange(e)}/>
                         </div>
                         <div className="booking-field">
                             <input className="booking-field_input"  type="time" name="time" required value={bookingInfo.time ? bookingInfo.time : newDate} onChange={e => handleInputChange(e)}/>

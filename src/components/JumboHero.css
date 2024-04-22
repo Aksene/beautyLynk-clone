@@ -138,8 +138,15 @@ figcaption p {
   }
   .booking-field input {
     width: 95%;
-    padding: 0 !important;
-    margin: 0 1px;
+  }
+  input[type="date"]:before {
+    color: lightgray;
+    content: attr(placeholder);
+  }
+
+  input[type="date"].full:before {
+    color: black;
+    content: "" !important;
   }
   .booking-field select {
     /* width: 96%; */
