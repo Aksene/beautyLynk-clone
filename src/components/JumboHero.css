@@ -79,6 +79,9 @@ figcaption p {
   /* padding: 10px; */
   transition: all 0.2s;
 }
+.booking-input-field {
+  border: 2px solid lightgrey;
+}
 
 .booking-field {
   /* padding: 1px; */
@@ -169,6 +172,7 @@ figcaption p {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 100%;
     padding: 1rem;
     margin-left: 0rem;
     margin-right: 0rem;
