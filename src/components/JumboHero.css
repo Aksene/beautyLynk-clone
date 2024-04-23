@@ -157,7 +157,7 @@ figcaption p {
   .booking-input-field input[type="time"]:before {
     content: attr(placeholder) !important;
     color: black;
-    width: -webkit-fill-available;
+    text-align: center;
     /* margin-right: 0.5em; */
   }
   .booking-input-field-alt input[type="time"]:before {
