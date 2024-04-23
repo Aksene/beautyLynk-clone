@@ -146,6 +146,7 @@ figcaption p {
     /* line-height: 22px; */
   }
   .booking-input-field input {
+    display: block;
     width: 94.5%;
     height: 90%;
     border-radius: 0px;
