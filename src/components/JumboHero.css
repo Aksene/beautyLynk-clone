@@ -146,8 +146,9 @@ figcaption p {
     /* line-height: 22px; */
   }
   .booking-input-field input {
-    width: 95%;
+    width: 94.5%;
     height: 90%;
+    border-radius: 0px;
     /* padding: 5px !important; */
     /* font-size: 15px !important; */
     /* margin-bottom: 2px !important; */
@@ -156,6 +157,7 @@ figcaption p {
   .booking-input-field input[type="time"]:before {
     content: attr(placeholder) !important;
     color: black;
+    width: 100%;
     /* margin-right: 0.5em; */
   }
   .booking-input-field input[type="date"]:focus:before,
