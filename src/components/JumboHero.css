@@ -157,12 +157,14 @@ figcaption p {
   .booking-input-field input[type="time"]:before {
     content: attr(placeholder) !important;
     color: black;
+    width: -webkit-fill-available;
     text-align: center;
     /* margin-right: 0.5em; */
   }
-  .booking-input-field-alt input[type="time"]:before {
+  .booking-input-field input[type="time"]::content {
     content: attr(placeholder) !important;
     color: black;
+    width: auto;
     /* margin-right: 0.5em; */
   }
   .booking-input-field input[type="date"]:focus:before,
