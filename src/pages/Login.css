@@ -82,6 +82,13 @@
   right: -6px;
 }
 
+@media (max-width: 900px) {
+  .login-form-container {
+    padding: 5px;
+    width: 40%;
+  }
+}
+
 @media (max-width: 800px) {
   .login-form-container {
     align-items: stretch;

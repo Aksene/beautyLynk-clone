@@ -28,7 +28,7 @@ const Layout = ({children}) => {
     }
 
     return (
-        <div>
+        <div className="layout-wrap">
             <header className="header">
                 <div className="header-image-container">
                     <Link to={"/"}>

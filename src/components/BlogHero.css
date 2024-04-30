@@ -109,6 +109,23 @@
   right: -6px;
 }
 
+@media (max-width: 900px) {
+  .blogHero-posts {
+    margin: auto;
+    width: 95%;
+    overflow-x: hidden;
+  }
+  .blogHero-header {
+    margin: auto;
+  }
+  .blogHero_carousel-wrap {
+    max-width: 100%;
+  }
+  .blogHero-image {
+    height: 250px;
+  }
+}
+
 @media (max-width: 800px) {
   .blogHero-posts {
     margin: auto;
@@ -120,5 +137,8 @@
   }
   .blogHero_carousel-wrap {
     max-width: 100%;
+  }
+  .blogHero-image {
+    height: 475px;
   }
 }

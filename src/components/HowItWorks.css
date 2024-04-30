@@ -46,6 +46,14 @@
   font-size: 1.25rem;
 }
 
+@media (max-width: 930px) {
+  .how_wrap {
+    margin-left: 2rem;
+    margin-right: 2rem;
+    color: white;
+  }
+}
+
 @media (max-width: 800px) {
   .how_wrap {
     margin-left: 0rem;

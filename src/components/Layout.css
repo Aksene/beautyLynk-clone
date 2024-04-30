@@ -8,7 +8,7 @@
 /* -------------------------------- Navbar CSS --------------------------------- */
 .header {
   display: grid;
-  /* width: 90%; */
+  width: 100%;
   /* margin: auto; */
   grid-template-columns: auto auto;
   height: 75px;
@@ -143,13 +143,39 @@
 .menu-icon {
   display: none;
 }
-
 @media (max-width: 900px) {
+  .layout-wrap {
+    width: auto;
+    /* width: -webkit-fill-available; */
+  }
   .header {
     overflow: hidden;
+    width: auto;
+  }
+  .header a {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 3rem;
+    text-transform: uppercase;
+  }
+  .header-image {
+    width: 150px;
+    padding-top: 0rem;
   }
   .header-image:hover {
-    width: 175px;
+    /* box-shadow: 0 0px 30px #b8336c; */
+    width: 150px;
+    transition: all 0.3s;
+    cursor: pointer;
+  }
+}
+@media (max-width: 600px) {
+  .header-image {
+    width: 150px;
+    /* padding-top: 0rem; */
+  }
+  .header-image:hover {
+    width: 150px;
     transition: all 0.3s;
     cursor: pointer;
   }
@@ -297,8 +323,18 @@
     cursor: pointer;
   }
 }
-/* ----------------------------------------------------------------------- */
 
+/* ----------------------------------------------------------------------- */
+/* @media (max-width: 500px) {
+  main {
+    width: auto;
+  }
+}
+@media (max-width: 700px) {
+  main {
+    width: fit-content;
+  }
+} */
 /* ------------------------------------- Footer CSS ---------------------------------- */
 footer {
   background-color: #111111;
@@ -439,17 +475,12 @@ footer {
   padding-bottom: 25px;
   color: #b8336c;
 }
-
 @media (max-width: 980px) {
   .footer-info {
     font-size: 0.8em;
   }
   .footer-icon-group li {
     padding: 10px;
-  }
-  .footer-links {
-    grid-template-columns: auto;
-    gap: 0px;
   }
   .slaymaster-logo-bottom-container {
     display: flex;
@@ -475,6 +506,9 @@ footer {
     padding: 0rem;
     color: #b8336c;
   }
+  .footer-links {
+    gap: 1rem;
+  }
 }
 @media (max-width: 650px) {
   .footer-info {
@@ -496,6 +530,10 @@ footer {
 
   .footer-icon-group ul {
     float: none;
+  }
+  .footer-links {
+    grid-template-columns: auto;
+    gap: 0px;
   }
 }
 /* ----------------------------------------------------------------------- */

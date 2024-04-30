@@ -114,6 +114,38 @@ figcaption p {
   background-color: var(--brand-color);
 }
 
+@media (max-width: 930px) {
+  figcaption {
+    width: -webkit-fill-available;
+    top: 3rem;
+    left: -2rem;
+  }
+  .booking-select_wrap {
+    width: 90%;
+    margin-left: 2rem;
+  }
+  .booking-field:last-of-type {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+@media (max-width: 800px) {
+  figcaption {
+    color: #562361 !important;
+    cursor: default;
+    font-size: 1.4rem;
+    font-weight: 600;
+    min-width: 200px;
+    left: 14rem;
+    letter-spacing: 0.05rem;
+    line-height: 1;
+    padding: 0rem;
+    position: absolute;
+    text-shadow: 0 0.02rem 0 rgb(17 17 17 / 50%);
+    /* width: 100%; */
+  }
+}
+
 @media (max-width: 700px) {
   .heroImage {
     width: 100%;
@@ -216,5 +248,11 @@ figcaption p {
     text-transform: capitalize;
     cursor: pointer;
     border-radius: 10px;
+  }
+}
+
+@media (max-height: 500px), (max-width: 900px) {
+  .jumbo-wrap {
+    /* width: 100%; */
   }
 }

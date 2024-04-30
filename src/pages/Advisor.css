@@ -13,5 +13,6 @@ body {
 } */
 
 .my-form {
-  height: 500px;
+  height: 100%;
+  padding-bottom: 20rem;
 }

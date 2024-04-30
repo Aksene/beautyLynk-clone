@@ -576,6 +576,7 @@ function BookNow() {
                                     disabled={bookingInfo.location === "" ? true : false} type="date" name="date" required value={bookingInfo.date} onClickDay={date => changeDate(date)} 
                                 ></Calendar> */}
                                 <input
+                                    placeholder={ bookingInfo.date ? "" : "MM/DD/YYYY"}
                                     onChange={bookingInfo.date === "" ? bookingInfo.time = "" : "" } 
                                     disabled={bookingInfo.location === "" ? true : false} type="date" name="date" required value={bookingInfo.date} onChange={e => handleInputChange(e)}
                                 />
@@ -584,6 +585,7 @@ function BookNow() {
                                 <label htmlFor="">What time do you want your appointment? (Select a time between 9AM and 8PM)</label>
                                 <div className="book-now_time">
                                     <input 
+                                        placeholder={ bookingInfo.time ? "" : "--:-- --"}
                                         onChange={bookingInfo.time === "" ? bookingInfo.serviceType = "" : "" } 
                                         disabled={bookingInfo.date === "" ? true : false} id="time" type="time" name="time" min="9:00" max="20:00" required value={bookingInfo.time}  onChange={e => handleInputChange(e)}
                                     />

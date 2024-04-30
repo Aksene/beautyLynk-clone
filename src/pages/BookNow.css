@@ -386,6 +386,26 @@ abbr[title] {
 }
 
 @media (max-width: 800px) {
+  .book-now-field input[type="date"]:before,
+  .book-now-field input[type="time"]:before {
+    content: attr(placeholder) !important;
+    color: black;
+    /* width: -webkit-fill-available; */
+    text-align: center;
+    /* margin-right: 0.5em; */
+  }
+  .book-now-field input[type="time"]::content {
+    content: attr(placeholder) !important;
+    color: black;
+    width: auto;
+    /* margin-right: 0.5em; */
+  }
+  .book-now-field input[type="date"]:focus:before,
+  .book-now-field input[type="date"]:valid:before,
+  .book-now-field input[type="time"]:focus:before,
+  .book-now-field input[type="time"]:valid:before {
+    content: "";
+  }
   .book-now-field_hidden,
   .book-now-field {
     grid-template-columns: 1fr !important;
